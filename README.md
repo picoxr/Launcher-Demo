@@ -1,4 +1,4 @@
-# GreenLauncher
+# Launcher Demo
 
 ## Unity Versions:
 
