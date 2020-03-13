@@ -1,7 +1,0 @@
-#the value 0 means the key will do nothing
-#if you want use system default config, please delete it
-action_home_single_tap=0
-action_home_double_tap=0
-
-
-
