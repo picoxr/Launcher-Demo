@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <config>
+		<Auto autoPlay="true"/>
+        <skyBox rotation="125"/>
+        <Title wifi="true" bluetooth="true" handle="true" battery="true" time="true"/>
+    </config>
+    <items>
+        <item id="0" type="1" videoType="0" Key="0">
+            <Name><![CDATA[网络视频1]]></Name>
+            <Url><![CDATA[http://alivideo.video.picovr.com/3fb972aaf3fa4e4bf9b6e83a698704d2_1520314486_264_fhd.mp4]]></Url>
+            <Pic><![CDATA[/pre_resource/greenLauncher/videoPic/pic2.jpg]]></Pic>
+        </item>
+        <item id="1" type="1" videoType="0" Key="0">
+            <Name><![CDATA[网络视频2]]></Name>
+            <Url><![CDATA[http://alivideo.video.picovr.com/47b0cef4c1b073202888e4b0b5eff977_1520410019_264_fhd.mp4]]></Url>
+            <Pic><![CDATA[/pre_resource/greenLauncher/videoPic/pic3.jpg]]></Pic>
+        </item>
+        <item id="2" type="1" videoType="0" Key="1">
+            <Name><![CDATA[_大-海=]]></Name>
+            <Url><![CDATA[\pre_resource\greenLauncher\video\_大-海=.mp4]]></Url>
+            <Pic><![CDATA[\pre_resource\greenLauncher\videoPic\pic4.jpg]]></Pic>
+        </item>
+		<item id="3" type="1" videoType="0" Key="1">
+            <Name><![CDATA[昆虫8k]]></Name>
+            <Url><![CDATA[\pre_resource\greenLauncher\video\昆虫8k.vr1]]></Url>
+            <Pic><![CDATA[\pre_resource\greenLauncher\videoPic\pic1.jpg]]></Pic>
+        </item>
+        <item id="4" type="2">
+            <Name><![CDATA[设置]]></Name>
+            <PackageName><![CDATA[com.picovr.settings]]></PackageName>
+            <Pic><![CDATA[/pre_resource/greenLauncher/videoPic/11.jpg]]></Pic>
+        </item>
+        <item id="5" type="2">
+            <Name><![CDATA[在线影院]]></Name>
+            <PackageName><![CDATA[com.picovr.wing]]></PackageName>
+            <Pic><![CDATA[/pre_resource/greenLauncher/videoPic/1.jpg]]></Pic>
+        </item>
+        <item id="6" type="2">
+            <Name><![CDATA[文件管理]]></Name>
+            <PackageName><![CDATA[com.picovr.filemanager]]></PackageName>
+            <Pic><![CDATA[/pre_resource/greenLauncher/videoPic/1.jpg]]></Pic>
+        </item>
+        <item id="7" type="2">
+            <Name><![CDATA[爱奇艺]]></Name>
+            <PackageName><![CDATA[com.iqiyi.ivrcinema.pico]]></PackageName>
+            <Pic><![CDATA[/pre_resource/greenLauncher/videoPic/1.jpg]]></Pic>
+        </item>
+    </items>
+</root>

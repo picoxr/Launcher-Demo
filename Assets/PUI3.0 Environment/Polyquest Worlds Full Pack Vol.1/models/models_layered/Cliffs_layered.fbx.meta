@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: 11784a648bec84e4785dee0104ef9ccb
+timeCreated: 1465435784
+licenseType: Store
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Cliff_A_child_layered
+    100002: Cliff_A_layered
+    100004: Cliff_B_layered
+    100006: Cliff_C_layered
+    100008: Cliff_D_layered
+    100010: Cliff_E_layered
+    100012: Cliff_F_layered
+    100014: Cliff_G_layered
+    100016: Cliff_H_layered
+    100018: Cliff_I_layered
+    100020: Cliff_J_child_layered
+    100022: Cliff_J_layered
+    100024: Cliff_K_child_layered
+    100026: Cliff_K_layered
+    100028: Cliff_L_layered
+    100030: Cliff_MLlayered
+    100032: Cliff_N_layered
+    100034: Cliff_O_layered
+    100036: Cliff_P_layered
+    100038: Cliff_Q_layered
+    100040: Cliff_R_layered
+    100042: Cliff_S_layered
+    100044: Cliff_T_layered
+    100046: Cliff_U_layered
+    100048: Cliff_V_child_layered
+    100050: Cliff_V_layered
+    100052: Cliff_W_layered
+    100054: //RootNode
+    400000: Cliff_A_child_layered
+    400002: Cliff_A_layered
+    400004: Cliff_B_layered
+    400006: Cliff_C_layered
+    400008: Cliff_D_layered
+    400010: Cliff_E_layered
+    400012: Cliff_F_layered
+    400014: Cliff_G_layered
+    400016: Cliff_H_layered
+    400018: Cliff_I_layered
+    400020: Cliff_J_child_layered
+    400022: Cliff_J_layered
+    400024: Cliff_K_child_layered
+    400026: Cliff_K_layered
+    400028: Cliff_L_layered
+    400030: Cliff_MLlayered
+    400032: Cliff_N_layered
+    400034: Cliff_O_layered
+    400036: Cliff_P_layered
+    400038: Cliff_Q_layered
+    400040: Cliff_R_layered
+    400042: Cliff_S_layered
+    400044: Cliff_T_layered
+    400046: Cliff_U_layered
+    400048: Cliff_V_child_layered
+    400050: Cliff_V_layered
+    400052: Cliff_W_layered
+    400054: //RootNode
+    2300000: Cliff_A_child_layered
+    2300002: Cliff_A_layered
+    2300004: Cliff_B_layered
+    2300006: Cliff_C_layered
+    2300008: Cliff_D_layered
+    2300010: Cliff_E_layered
+    2300012: Cliff_F_layered
+    2300014: Cliff_G_layered
+    2300016: Cliff_H_layered
+    2300018: Cliff_I_layered
+    2300020: Cliff_J_child_layered
+    2300022: Cliff_J_layered
+    2300024: Cliff_K_child_layered
+    2300026: Cliff_K_layered
+    2300028: Cliff_L_layered
+    2300030: Cliff_MLlayered
+    2300032: Cliff_N_layered
+    2300034: Cliff_O_layered
+    2300036: Cliff_P_layered
+    2300038: Cliff_Q_layered
+    2300040: Cliff_R_layered
+    2300042: Cliff_S_layered
+    2300044: Cliff_T_layered
+    2300046: Cliff_U_layered
+    2300048: Cliff_V_child_layered
+    2300050: Cliff_V_layered
+    2300052: Cliff_W_layered
+    3300000: Cliff_A_child_layered
+    3300002: Cliff_A_layered
+    3300004: Cliff_B_layered
+    3300006: Cliff_C_layered
+    3300008: Cliff_D_layered
+    3300010: Cliff_E_layered
+    3300012: Cliff_F_layered
+    3300014: Cliff_G_layered
+    3300016: Cliff_H_layered
+    3300018: Cliff_I_layered
+    3300020: Cliff_J_child_layered
+    3300022: Cliff_J_layered
+    3300024: Cliff_K_child_layered
+    3300026: Cliff_K_layered
+    3300028: Cliff_L_layered
+    3300030: Cliff_MLlayered
+    3300032: Cliff_N_layered
+    3300034: Cliff_O_layered
+    3300036: Cliff_P_layered
+    3300038: Cliff_Q_layered
+    3300040: Cliff_R_layered
+    3300042: Cliff_S_layered
+    3300044: Cliff_T_layered
+    3300046: Cliff_U_layered
+    3300048: Cliff_V_child_layered
+    3300050: Cliff_V_layered
+    3300052: Cliff_W_layered
+    4300000: Cliff_A_layered
+    4300002: Cliff_A_child_layered
+    4300004: Cliff_B_layered
+    4300006: Cliff_C_layered
+    4300008: Cliff_D_layered
+    4300010: Cliff_E_layered
+    4300012: Cliff_F_layered
+    4300014: Cliff_G_layered
+    4300016: Cliff_H_layered
+    4300018: Cliff_I_layered
+    4300020: Cliff_J_layered
+    4300022: Cliff_J_child_layered
+    4300024: Cliff_K_layered
+    4300026: Cliff_K_child_layered
+    4300028: Cliff_L_layered
+    4300030: Cliff_MLlayered
+    4300032: Cliff_N_layered
+    4300034: Cliff_O_layered
+    4300036: Cliff_P_layered
+    4300038: Cliff_Q_layered
+    4300040: Cliff_R_layered
+    4300042: Cliff_S_layered
+    4300044: Cliff_T_layered
+    4300046: Cliff_U_layered
+    4300048: Cliff_V_layered
+    4300050: Cliff_V_child_layered
+    4300052: Cliff_W_layered
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: m_rock_snow_02
+    second: {fileID: 2100000, guid: d4f7195c397b3264c89ecdac59014bff, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 2
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 0
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 0
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
