@@ -1,4 +1,7 @@
-﻿#if !UNITY_EDITOR && UNITY_ANDROID
+﻿// Copyright  2015-2020 Pico Technology Co., Ltd. All Rights Reserved.
+
+
+#if !UNITY_EDITOR && UNITY_ANDROID
 #define ANDROID_DEVICE
 #endif
 
@@ -643,12 +646,10 @@ namespace Pvr_UnitySDKAPI
         /// <param name="hand">UserHandNess</param>
         public static void UPvr_SetHandNess(Pvr_Controller.UserHandNess hand)
         {
-            if (System.UPvr_GetPvrHandnessExt() != (int)hand)
+            if (Pvr_ControllerManager.controllerlink.getHandness() != (int)hand)
             {
-                System.UPvr_SetPvrHandnessExt((int)hand);
-                Pvr_Controller.ChangeHandNess();
+                Pvr_ControllerManager.controllerlink.setHandness((int)hand);
             }
-
         }
 
         /// <summary>

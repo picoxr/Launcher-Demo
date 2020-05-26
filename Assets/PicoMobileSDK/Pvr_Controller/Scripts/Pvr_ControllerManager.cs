@@ -1,4 +1,7 @@
-﻿#if !UNITY_EDITOR && UNITY_ANDROID 
+﻿// Copyright  2015-2020 Pico Technology Co., Ltd. All Rights Reserved.
+
+
+#if !UNITY_EDITOR && UNITY_ANDROID 
 #define ANDROID_DEVICE
 #endif
 
@@ -34,19 +37,14 @@ public class Pvr_ControllerManager : MonoBehaviour
     }
     #region Properties
     
-    public static bool longPressclock;
     public static Pvr_ControllerLink controllerlink;
     private float cTime = 1.0f;
-    private float longpresstime = 0.5f; 
     private bool stopConnect; 
     public Text toast;
     private bool controllerServicestate;
     private float disConnectTime;
-    private int triggernum;
-    private DateTime beginDT;
-    private DateTime endDT;
     public bool LengthAdaptiveRay;
-    private float rtime = 1.0f;
+
     #endregion
 
     //Service Start Success
@@ -155,10 +153,9 @@ public class Pvr_ControllerManager : MonoBehaviour
             var fixedpose0 = controllerlink.GetControllerFixedSensorState(0);
             if (controllerlink.controller0Connected)
             {
-
                 var pose0 = controllerlink.GetCvControllerPoseData(0);
-                controllerlink.Controller0.Rotation = new Quaternion(pose0[0], pose0[1], pose0[2], pose0[3]);
-                controllerlink.Controller0.Position = new Vector3(pose0[4] / 1000.0f, pose0[5] / 1000.0f, -pose0[6] / 1000.0f);
+                controllerlink.Controller0.Rotation.Set(pose0[0], pose0[1], pose0[2], pose0[3]);
+                controllerlink.Controller0.Position.Set(pose0[4] / 1000.0f, pose0[5] / 1000.0f, -pose0[6] / 1000.0f);
 
                 var key0 = controllerlink.GetCvControllerKeyData(0);
                 Sensor.UPvr_SetReinPosition(fixedpose0[0], fixedpose0[1], fixedpose0[2], fixedpose0[3], fixedpose0[4], fixedpose0[5], fixedpose0[6], 0, true, Convert.ToInt32((Convert.ToString(key0[35]) + "000"), 2));
@@ -166,23 +163,23 @@ public class Pvr_ControllerManager : MonoBehaviour
             }
             else
             {
-                Sensor.UPvr_SetReinPosition(fixedpose0[0], fixedpose0[1], fixedpose0[2], fixedpose0[3], fixedpose0[4], fixedpose0[5], fixedpose0[6], 0, false,0);
+                Sensor.UPvr_SetReinPosition(fixedpose0[0], fixedpose0[1], fixedpose0[2], fixedpose0[3], fixedpose0[4], fixedpose0[5], fixedpose0[6], 0, false, 0);
             }
 
             var fixedpose1 = controllerlink.GetControllerFixedSensorState(1);
             if (controllerlink.controller1Connected)
             {
                 var pose1 = controllerlink.GetCvControllerPoseData(1);
-                controllerlink.Controller1.Rotation = new Quaternion(pose1[0], pose1[1], pose1[2], pose1[3]);
-                controllerlink.Controller1.Position = new Vector3(pose1[4] / 1000.0f, pose1[5] / 1000.0f, -pose1[6] / 1000.0f);
+                controllerlink.Controller1.Rotation.Set(pose1[0], pose1[1], pose1[2], pose1[3]);
+                controllerlink.Controller1.Position.Set(pose1[4] / 1000.0f, pose1[5] / 1000.0f, -pose1[6] / 1000.0f);
 
                 var key1 = controllerlink.GetCvControllerKeyData(1);
-                Sensor.UPvr_SetReinPosition(fixedpose0[0], fixedpose0[1], fixedpose0[2], fixedpose0[3], fixedpose1[4], fixedpose1[5], fixedpose1[6], 1, true, Convert.ToInt32((Convert.ToString(key1[35]) + "000"), 2));
+                Sensor.UPvr_SetReinPosition(fixedpose1[0], fixedpose1[1], fixedpose1[2], fixedpose1[3], fixedpose1[4], fixedpose1[5], fixedpose1[6], 1, true, Convert.ToInt32((Convert.ToString(key1[35]) + "000"), 2));
                 TransformData(controllerlink.Controller1, 1, key1);
             }
             else
             {
-                Sensor.UPvr_SetReinPosition(fixedpose0[0], fixedpose0[1], fixedpose0[2], fixedpose0[3], fixedpose1[4], fixedpose1[5], fixedpose1[6], 1, false,0);
+                Sensor.UPvr_SetReinPosition(fixedpose1[0], fixedpose1[1], fixedpose1[2], fixedpose1[3], fixedpose1[4], fixedpose1[5], fixedpose1[6], 1, false, 0);
             }
         }
 
@@ -190,7 +187,7 @@ public class Pvr_ControllerManager : MonoBehaviour
         if (controllerlink.goblinserviceStarted && controllerlink.controller0Connected)
         {
             var pose0 = controllerlink.GetHBControllerPoseData();
-            controllerlink.Controller0.Rotation = new Quaternion(pose0[0], pose0[1], pose0[2], pose0[3]);
+            controllerlink.Controller0.Rotation.Set(pose0[0], pose0[1], pose0[2], pose0[3]);
 
             var key0 = controllerlink.GetHBControllerKeyData();
             TransformData(controllerlink.Controller0, 0, key0);

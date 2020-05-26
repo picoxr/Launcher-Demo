@@ -1,3 +1,6 @@
+// Copyright  2015-2020 Pico Technology Co., Ltd. All Rights Reserved.
+
+
 #if !UNITY_EDITOR && UNITY_ANDROID 
 #define ANDROID_DEVICE
 #endif
@@ -28,6 +31,7 @@ namespace Pvr_UnitySDKAPI
         iCtrlModelLoadingPri,
         iPhoneHMDModeEnabled,
         isEnableBoundary,
+        Enable_Activity_Rotation,
 
     };
 
@@ -169,7 +173,9 @@ namespace Pvr_UnitySDKAPI
 
         public Vector3 leftEyePositionGuide;    //!< Position of the inner corner of the left eye in meters from the HMD center-eye coordinate system's origin.
         public Vector3 rightEyePositionGuide;   //!< Position of the inner corner of the right eye in meters from the HMD center-eye coordinate system's origin.
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 24)]
+        public Vector3 foveatedGazeDirection;   //!< Position of the gaze direction in meters from the HMD center-eye coordinate system's origin.
+        public int foveatedGazeTrackingState; //!< The current state of the foveatedGazeDirection signal.
+        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 8)]
         public byte[] reserved;               //!< reserved
     }
 
@@ -517,7 +523,10 @@ namespace Pvr_UnitySDKAPI
 
         public static void UPvr_SetReinPosition( float x, float y, float z,float w,float px, float py,float pz, int hand, bool valid, int key)
         {
-            PLOG.D("PvrLog UPvr_SetReinPosition" + x + y + z + w + px +py + pz + hand + valid + key);
+            if (PLOG.logLevel > 2)
+            {
+                PLOG.D("PvrLog UPvr_SetReinPosition" + x + y + z + w + px + py + pz + hand + valid + key);
+            }
 #if ANDROID_DEVICE
             Pvr_SetReinPosition(x,y,z,w,px,py,pz,hand,valid,key);
 #endif
@@ -565,7 +574,7 @@ namespace Pvr_UnitySDKAPI
         private static extern int Pvr_GetFloatConfig(int configsenum, ref float res);
 
         [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
-        private static extern void Pvr_SetupLayerData(int layerIndex, int sideMask, int textureId, int textureType, int layerFlags);
+        private static extern void Pvr_SetupLayerData(int layerIndex, int sideMask, int textureId, int textureType, int layerFlags, float[] colorScaleAndOffset);
 
         [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void Pvr_SetupLayerCoords(int layerIndex, int sideMask, float[] lowerLeft, float[] lowerRight, float[] upperLeft, float[] upperRight);
@@ -573,7 +582,7 @@ namespace Pvr_UnitySDKAPI
         // 2D Overlay
         [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
         private static extern void Pvr_SetOverlayModelViewMatrix(int overlayType, int overlayShape, int texId, int eyeSide, int layerIndex, bool isHeadLocked, int layerFlags,
-                                                                 float[] mvMatrix, float[] modelS, float[] modelR, float[] modelT, float[] cameraR, float[] cameraT);
+                                                                 float[] mvMatrix, float[] modelS, float[] modelR, float[] modelT, float[] cameraR, float[] cameraT, float[] colorScaleAndOffset);
 
         // Foveation
         [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
@@ -689,10 +698,21 @@ namespace Pvr_UnitySDKAPI
         }
 
         // StandTexture Overlay
-        public static void UPvr_SetupLayerData(int layerIndex, int sideMask, int textureId, int textureType, int layerFlags)
+        public static void UPvr_SetupLayerData(int layerIndex, int sideMask, int textureId, int textureType, int layerFlags, Vector4 colorScale, Vector4 colorOffset)
         {
 #if ANDROID_DEVICE
-            Pvr_SetupLayerData(layerIndex, sideMask, textureId, textureType, layerFlags);
+            float[] colorScaleAndOffset = new float[8];
+            colorScaleAndOffset[0] = colorScale.x;
+            colorScaleAndOffset[1] = colorScale.y;
+            colorScaleAndOffset[2] = colorScale.z;
+            colorScaleAndOffset[3] = colorScale.w;
+
+            colorScaleAndOffset[4] = colorOffset.x;
+            colorScaleAndOffset[5] = colorOffset.y;
+            colorScaleAndOffset[6] = colorOffset.z;
+            colorScaleAndOffset[7] = colorOffset.w;
+
+            Pvr_SetupLayerData(layerIndex, sideMask, textureId, textureType, layerFlags, colorScaleAndOffset);
 #endif
         }
 
@@ -703,7 +723,7 @@ namespace Pvr_UnitySDKAPI
 #endif
         }
 
-        public static void UPvr_SetOverlayModelViewMatrix(int overlayType, int overlayShape, int texId, int eyeSide, int layerIndex, bool isHeadLocked, int layerFlags, Matrix4x4 mvMatrix, Vector3 modelS, Quaternion modelR, Vector3 modelT, Quaternion cameraR, Vector3 cameraT)
+        public static void UPvr_SetOverlayModelViewMatrix(int overlayType, int overlayShape, int texId, int eyeSide, int layerIndex, bool isHeadLocked, int layerFlags, Matrix4x4 mvMatrix, Vector3 modelS, Quaternion modelR, Vector3 modelT, Quaternion cameraR, Vector3 cameraT, Vector4 colorScale, Vector4 colorOffset)
         {
 #if ANDROID_DEVICE
             float[] mvMat = new float[16];
@@ -726,7 +746,19 @@ namespace Pvr_UnitySDKAPI
 			float[] translationC = new float[3];
 			translationC[0] = cameraT.x; translationC[1] = cameraT.y; translationC[2] = cameraT.z;
 
-            Pvr_SetOverlayModelViewMatrix(overlayType, overlayShape, texId, eyeSide, layerIndex, isHeadLocked, layerFlags,  mvMat, scaleM, rotationM, translationM, rotationC, translationC);
+            float[] colorScaleAndOffset = new float[8];
+            colorScaleAndOffset[0] = colorScale.x;
+            colorScaleAndOffset[1] = colorScale.y;
+            colorScaleAndOffset[2] = colorScale.z;
+            colorScaleAndOffset[3] = colorScale.w;
+
+            colorScaleAndOffset[4] = colorOffset.x;
+            colorScaleAndOffset[5] = colorOffset.y;
+            colorScaleAndOffset[6] = colorOffset.z;
+            colorScaleAndOffset[7] = colorOffset.w;
+
+
+            Pvr_SetOverlayModelViewMatrix(overlayType, overlayShape, texId, eyeSide, layerIndex, isHeadLocked, layerFlags,  mvMat, scaleM, rotationM, translationM, rotationC, translationC, colorScaleAndOffset);
 #endif
         }
 
@@ -774,7 +806,7 @@ namespace Pvr_UnitySDKAPI
         public const string LibFileName = "Pvr_UnitySDK";
 #endif
 
-        public const string UnitySDKVersion = "2.8.4.6";
+        public const string UnitySDKVersion = "2.8.5.6";
 
 #if ANDROID_DEVICE
 		[DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
@@ -807,16 +839,14 @@ namespace Pvr_UnitySDKAPI
                                                          ref float leftEyeOpenness, ref float rightEyeOpenness,
                                                          ref float leftEyePupilDilation, ref float rightEyePupilDilation,
                                                          ref float leftEyePositionGuideX, ref float leftEyePositionGuideY, ref float leftEyePositionGuideZ,
-                                                         ref float rightEyePositionGuideX, ref float rightEyePositionGuideY, ref float rightEyePositionGuideZ);
+                                                         ref float rightEyePositionGuideX, ref float rightEyePositionGuideY, ref float rightEyePositionGuideZ,
+                                                         ref float foveatedGazeDirectionX, ref float foveatedGazeDirectionY, ref float foveatedGazeDirectionZ,
+                                                         ref int foveatedGazeTrackingState);
 
         [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
         public static extern bool Pvr_SetTrackingMode(int trackingMode);
         [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
         public static extern int Pvr_GetTrackingMode();
-        [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int Pvr_GetPvrHandnessExt();
-        [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
-        public static extern void Pvr_SetPvrHandnessExt(int value);
 		[DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr GetRenderEventFunc();
 
@@ -836,7 +866,20 @@ namespace Pvr_UnitySDKAPI
         public static extern void Pvr_SetCurrentRenderTexture(uint textureId);
 
         [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
+        public static extern bool Pvr_SetSinglePassDepthBufferWidthHeight(int width, int height);
+
+        [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
         public static extern int PVR_setPerformanceLevels(int cpuLevel, int gpuLevel);
+        [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
+        public static extern bool Pvr_SetIPD(float distance);
+        [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
+        public static extern float Pvr_GetIPD();
+        [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
+        public static extern bool Pvr_SetTrackingIPDEnabled(bool enable);
+        [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
+        public static extern bool Pvr_GetTrackingIPDEnabled();
+        [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
+        public static extern bool Pvr_GetEyeTrackingAutoIPD(ref float autoIPD);
 #endif
 
 
@@ -1085,6 +1128,53 @@ namespace Pvr_UnitySDKAPI
         }
 #endregion
 
+        public static bool UPvr_SetIPD(float distance)
+        {
+#if ANDROID_DEVICE
+            for (int i = 0; i < Pvr_UnitySDKEyeManager.Instance.Eyes.Length; i++)
+            {
+                Pvr_UnitySDKEyeManager.Instance.Eyes[i].RefreshCameraPosition(distance);
+            }
+
+            return Pvr_SetIPD(distance);
+#endif
+            return false;
+        }
+
+        public static float UPvr_GetIPD()
+        {
+#if ANDROID_DEVICE
+            float ipd = Pvr_GetIPD();
+            Debug.Log("DISFT IPD:" + ipd);
+            return ipd;
+#endif
+            return 0;
+        }
+
+        public static bool UPvr_SetTrackingIPDEnabled(bool enable)
+        {
+#if ANDROID_DEVICE
+            return Pvr_SetTrackingIPDEnabled(enable);
+#endif
+            return false;
+        }
+
+        public static bool UPvr_GetTrackingIPDEnabled()
+        {
+#if ANDROID_DEVICE
+            return Pvr_GetTrackingIPDEnabled();
+#endif
+            return false;
+        }
+        
+        public static bool UPvr_GetEyeTrackingAutoIPD(ref float autoipd)
+        {
+#if ANDROID_DEVICE
+            return Pvr_GetEyeTrackingAutoIPD(ref autoipd);
+#endif
+            return false;
+        }
+
         public static void UPvr_UnityEventData(long data)
         {
 #if ANDROID_DEVICE
@@ -1186,14 +1276,6 @@ namespace Pvr_UnitySDKAPI
         public static bool UPvr_getEyeTrackingData(ref EyeTrackingData trackingData)
         {
 #if ANDROID_DEVICE
-            trackingData.leftEyeGazeVector.z = -trackingData.leftEyeGazeVector.z;
-            trackingData.rightEyeGazeVector.z = -trackingData.rightEyeGazeVector.z;
-            trackingData.combinedEyeGazeVector.z = -trackingData.combinedEyeGazeVector.z;
-
-            trackingData.leftEyeGazePoint.z = -trackingData.leftEyeGazePoint.z;
-            trackingData.rightEyeGazePoint.z = -trackingData.rightEyeGazePoint.z;
-            trackingData.combinedEyeGazePoint.z = -trackingData.combinedEyeGazePoint.z;
-
             bool result = Pvr_GetEyeTrackingData(
                 ref trackingData.leftEyePoseStatus, ref trackingData.rightEyePoseStatus, ref trackingData.combinedEyePoseStatus,
                 ref trackingData.leftEyeGazePoint.x, ref trackingData.leftEyeGazePoint.y, ref trackingData.leftEyeGazePoint.z,
@@ -1205,9 +1287,10 @@ namespace Pvr_UnitySDKAPI
                 ref trackingData.leftEyeOpenness, ref trackingData.rightEyeOpenness,
                 ref trackingData.leftEyePupilDilation, ref trackingData.rightEyePupilDilation,
                 ref trackingData.leftEyePositionGuide.x, ref trackingData.leftEyePositionGuide.y, ref trackingData.leftEyePositionGuide.z,
-                ref trackingData.rightEyePositionGuide.x, ref trackingData.rightEyePositionGuide.y, ref trackingData.rightEyePositionGuide.z
+                ref trackingData.rightEyePositionGuide.x, ref trackingData.rightEyePositionGuide.y, ref trackingData.rightEyePositionGuide.z,
+                ref trackingData.foveatedGazeDirection.x, ref trackingData.foveatedGazeDirection.y, ref trackingData.foveatedGazeDirection.z,
+                ref trackingData.foveatedGazeTrackingState
                 );
-            // Transform SVR to Unity by negating z-axis
             trackingData.leftEyeGazeVector.z = -trackingData.leftEyeGazeVector.z;
             trackingData.rightEyeGazeVector.z = -trackingData.rightEyeGazeVector.z;
             trackingData.combinedEyeGazeVector.z = -trackingData.combinedEyeGazeVector.z;
@@ -1215,6 +1298,7 @@ namespace Pvr_UnitySDKAPI
             trackingData.leftEyeGazePoint.z = -trackingData.leftEyeGazePoint.z;
             trackingData.rightEyeGazePoint.z = -trackingData.rightEyeGazePoint.z;
             trackingData.combinedEyeGazePoint.z = -trackingData.combinedEyeGazePoint.z;
+            trackingData.foveatedGazeDirection.z = -trackingData.foveatedGazeDirection.z;
             return result;            
 #endif
             return false;
@@ -1314,21 +1398,6 @@ namespace Pvr_UnitySDKAPI
             return false;
         }
 
-        public static int UPvr_GetPvrHandnessExt()
-        {
-#if ANDROID_DEVICE
-            return Pvr_GetPvrHandnessExt();
-#endif
-            return 0;
-        }
-
-        public static void UPvr_SetPvrHandnessExt(int value)
-        {
-#if ANDROID_DEVICE
-            Pvr_SetPvrHandnessExt(value);
-#endif
-        }
-
         public static bool UPvr_EnableSinglePass(bool enable)
         {
 #if ANDROID_DEVICE
@@ -1356,6 +1425,15 @@ namespace Pvr_UnitySDKAPI
 #if ANDROID_DEVICE
             Pvr_UnitySDKAPI.System.Pvr_SetCurrentRenderTexture(textureId);
 #endif
+        }
+
+        public static bool UPvr_SetSinglePassDepthBufferWidthHeight(int width, int height)
+        {
+            bool ret = false;
+#if ANDROID_DEVICE
+            ret = Pvr_UnitySDKAPI.System.Pvr_SetSinglePassDepthBufferWidthHeight(width, height);
+#endif
+            return ret;
         }
 
         public static int UPVR_setPerformanceLevels(int cpuLevel, int gpuLevel)
@@ -1577,6 +1655,9 @@ namespace Pvr_UnitySDKAPI
         private static extern bool Pvr_BoundaryTestPoint(float x, float y, float z, bool isPlayArea, ref bool isTriggering, ref float closestDistance, ref float px, ref float py, ref float pz, ref float nx, ref float ny, ref float nz);
 
         [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
+        private static extern int Pvr_BoundaryGetGeometry(out IntPtr handle, bool isPlayArea);
+
+        [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
         private static extern bool Pvr_BoundaryGetEnabled();
 
         [DllImport(LibFileName, CallingConvention = CallingConvention.Cdecl)]
@@ -1689,6 +1770,8 @@ namespace Pvr_UnitySDKAPI
                 ref testResult.ClosestPoint.x, ref testResult.ClosestPoint.y, ref testResult.ClosestPoint.z,
                 ref testResult.ClosestPointNormal.x, ref testResult.ClosestPointNormal.y, ref testResult.ClosestPointNormal.z);
 
+            testResult.ClosestPoint.z = -testResult.ClosestPoint.z;
+            testResult.ClosestPointNormal.z = -testResult.ClosestPointNormal.z;
             if (!ret)
             {
                 Debug.LogError(string.Format("UPvr_BoundaryTestNode({0}, {1}) API call failed!", node, boundaryType));
@@ -1707,7 +1790,7 @@ namespace Pvr_UnitySDKAPI
         {
             BoundaryTestResult testResult = new BoundaryTestResult();
 #if ANDROID_DEVICE
-            bool ret = Pvr_BoundaryTestPoint(point.x, point.y, point.z, boundaryType == BoundaryType.PlayArea, ref testResult.IsTriggering, ref testResult.ClosestDistance, 
+            bool ret = Pvr_BoundaryTestPoint(point.x, point.y, -point.z, boundaryType == BoundaryType.PlayArea, ref testResult.IsTriggering, ref testResult.ClosestDistance, 
                 ref testResult.ClosestPoint.x, ref testResult.ClosestPoint.y, ref testResult.ClosestPoint.z, 
                 ref testResult.ClosestPointNormal.x, ref testResult.ClosestPointNormal.y, ref testResult.ClosestPointNormal.z);
 
@@ -1717,6 +1800,42 @@ namespace Pvr_UnitySDKAPI
             }
 #endif
             return testResult;
+        }
+
+        /// <summary>
+        /// Return the boundary geometry points
+        /// </summary>
+        /// <param name="boundaryType">OuterBoundary or PlayArea</param>
+        /// <returns>Boundary geometry point-collection num</returns>
+        public static Vector3[] UPvr_BoundaryGetGeometry(BoundaryType boundaryType)
+        {
+#if ANDROID_DEVICE
+            IntPtr pointHandle = IntPtr.Zero;           
+            int pointsCount = Pvr_BoundaryGetGeometry(out pointHandle, boundaryType == BoundaryType.PlayArea);
+            if (pointsCount <= 0)
+            {
+                Debug.LogError("Boundary geometry point count is " + pointsCount);
+                return null;
+            }
+            // managed buffer
+            int pointBufferSize = pointsCount * 3;
+            float[] pointsBuffer = new float[pointBufferSize];
+            Marshal.Copy(pointHandle, pointsBuffer, 0, pointBufferSize);
+
+            Vector3[] points = new Vector3[pointsCount];
+            for (int i = 0; i < pointsCount; i++)
+            {
+                points[i] = new Vector3()
+                {
+                    x = pointsBuffer[3 * i + 0],
+                    y = pointsBuffer[3 * i + 1],
+                    z = -pointsBuffer[3 * i + 2],
+                };
+            }
+
+            return points;
+#endif
+            return null;
         }
 
         /// <summary>

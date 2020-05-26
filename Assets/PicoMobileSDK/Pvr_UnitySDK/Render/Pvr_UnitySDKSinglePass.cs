@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright  2015-2020 Pico Technology Co., Ltd. All Rights Reserved.
+
+
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -44,6 +47,11 @@ public class Pvr_UnitySDKSinglePass : SDKStereoRendering
         SinglePassPreRender();
     }
 
+    public override void OnSDKPostRender()
+    {
+        SwitchKeywordAndDeviceView(false);
+    }
+
     public void OnSDKRenderInited_SinglePass()
     {
         Vector4[] unity_StereoScaleOffset = new Vector4[2];
@@ -51,14 +59,13 @@ public class Pvr_UnitySDKSinglePass : SDKStereoRendering
         unity_StereoScaleOffset[1] = new Vector4(1.0f, 1.0f, 0.5f, 0f);
         Shader.SetGlobalVectorArray("unity_StereoScaleOffset", unity_StereoScaleOffset);
         SetAntiAliasing();
-        SwitchKeywordAndDeviceView(true);
         
         Debug.Log("OnSDKRenderInited_SinglePass");
     }
 
     private void SetAntiAliasing()
     {
-        int antiAliasing = Mathf.Max(QualitySettings.antiAliasing, (int)Pvr_UnitySDKManager.SDK.RtAntiAlising);
+        int antiAliasing = Mathf.Max(QualitySettings.antiAliasing, (int)Pvr_UnitySDKProjectSetting.GetProjectConfig().rtAntiAlising);
         Pvr_UnitySDKAPI.System.UPvr_SetAntiAliasing(antiAliasing);
         Debug.Log("SetAntiAliasing  antiAliasing = " + antiAliasing);
     }
@@ -149,19 +156,14 @@ public class Pvr_UnitySDKSinglePass : SDKStereoRendering
         {
             Shader.EnableKeyword("STEREO_MULTIVIEW_ON");
             Shader.EnableKeyword("UNITY_SINGLE_PASS_STEREO");
-
-            bool showDeviceView = false;
-
-            XRSettings.showDeviceView = showDeviceView;
+            XRSettings.showDeviceView = false;
         }
         else
         {
-            XRSettings.showDeviceView = true;
-
-            Shader.DisableKeyword("STEREO_MULTIVIEW_ON");
+            XRSettings.showDeviceView = true;            
             Shader.DisableKeyword("UNITY_SINGLE_PASS_STEREO");
+            Shader.DisableKeyword("STEREO_MULTIVIEW_ON");
         }
-        Debug.Log("SwitchKeywordAndDeviceView  enable = " + enable);
     }
 
     public static Matrix4x4[] GetStereoWorldToCameraMat()
@@ -175,6 +177,7 @@ public class Pvr_UnitySDKSinglePass : SDKStereoRendering
 
     public void SinglePassPreRender()
     {
+        SwitchKeywordAndDeviceView(true);        
         Shader.SetGlobalMatrixArray("unity_StereoCameraProjection", unity_StereoMatrixP);
         Shader.SetGlobalMatrixArray("unity_StereoCameraInvProjection", unity_StereoMatrixInvP);
         Shader.SetGlobalMatrixArray("unity_StereoMatrixP", unity_StereoMatrixP);
@@ -262,5 +265,6 @@ public abstract class SDKStereoRendering
     public abstract void InitEye(Camera eye);
     public abstract void OnSDKRenderInited();
     public abstract void OnSDKPreRender();
+    public abstract void OnSDKPostRender();
 }
 

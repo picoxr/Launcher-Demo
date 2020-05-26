@@ -1,10 +1,13 @@
-﻿#if !UNITY_EDITOR && UNITY_ANDROID 
+﻿// Copyright  2015-2020 Pico Technology Co., Ltd. All Rights Reserved.
+
+
+#if !UNITY_EDITOR && UNITY_ANDROID 
 #define ANDROID_DEVICE
 #endif
 
-using UnityEngine;
-using Pvr_UnitySDKAPI;
 using System;
+using Pvr_UnitySDKAPI;
+using UnityEngine;
 
 public class Pvr_ControllerLink
 {
@@ -176,18 +179,28 @@ public class Pvr_ControllerLink
     public int getHandness()
     {
         int handness = -1;
+#if ANDROID_DEVICE
         if (iPhoneHMDModeEnabled == 0)
         {
-#if ANDROID_DEVICE
-        Pvr_UnitySDKAPI.System.UPvr_CallStaticMethod<int>(ref handness, javavractivityclass, "getPvrHandness", activity);
-#endif
+            Pvr_UnitySDKAPI.System.UPvr_CallStaticMethod<int>(ref handness, javavractivityclass, "getPvrHandness", activity);
         }
         else
         {
-            handness = Pvr_UnitySDKAPI.System.UPvr_GetPvrHandnessExt();
+            Pvr_UnitySDKAPI.System.UPvr_CallStaticMethod<int>(ref handness, javaHummingbirdClass, "getHbHandednessInSP");
         }
+#endif
         PLOG.I("PvrLog HandNess =" + handness);
         return handness;
+    }
+
+    public void setHandness(int hand)
+    {
+#if ANDROID_DEVICE
+        if (iPhoneHMDModeEnabled == 1)
+        {
+            Pvr_UnitySDKAPI.System.UPvr_CallStaticMethod(javaHummingbirdClass, "setHbHandednessInSP", hand);
+        }
+#endif
     }
 
     public void StartScan()
@@ -330,7 +343,10 @@ public class Pvr_ControllerLink
             Pvr_UnitySDKAPI.System.UPvr_CallStaticMethod<int>(ref state, javaHummingbirdClass, "getHbConnectionState");
         }
 #endif
-        PLOG.D("PvrLog GetControllerState:" + num + "state:" + state);
+        if (PLOG.logLevel > 2)
+        {
+            PLOG.D("PvrLog GetControllerState:" + num + "state:" + state);
+        }
         return state;
     }
 
@@ -385,31 +401,37 @@ public class Pvr_ControllerLink
 #if ANDROID_DEVICE
         Pvr_UnitySDKAPI.System.UPvr_CallStaticMethod(ref data, javaHummingbirdClass, "getHBSensorPose");
 #endif
-        PLOG.D("PvrLog HBControllerData" + data[0] + "," + data[1] + "," + data[2] + "," + data[3]);
+        if (PLOG.logLevel > 2)
+        {
+            PLOG.D("PvrLog HBControllerData" + data[0] + "," + data[1] + "," + data[2] + "," + data[3]);
+        }
         return data;
     }
 
+    private float[] fixedState = new float[7] {0, 0, 0, 1, 0, 0, 0};
     public float[] GetControllerFixedSensorState(int hand)
     {
         if (trackingmode == 2 || trackingmode == 3)
         {
-            return new float[7] { 0, 0, 0, 1, 0, 0, 0 };
+            return fixedState;
         }
-        else
-        {
-            var data = new float[7] { 0, 0, 0, 1, 0, 0, 0 };
+
+        var data = fixedState;
 #if ANDROID_DEVICE
         Pvr_UnitySDKAPI.System.UPvr_CallStaticMethod(ref data, javaCVClass, "getControllerFixedSensorState", hand);
 #endif
+        if (PLOG.logLevel > 2)
+        {
             PLOG.D("PvrLog GetControllerFixedSensorState " + hand + "Rotation:" + data[0] + "," + data[1] + "," + data[2] + "," + data[3] + "Position:" +
                    data[4] + "," + data[5] + "," + data[6]);
-            return data;
         }
+        return data;
     }
 
+    private float[] neoposeData = new float[7] { 0, 0, 0, 1, 0, 0, 0 };
     public float[] GetCvControllerPoseData(int hand)
     {
-        var data = new float[7] { 0, 0, 0, 1, 0, 0, 0 };
+        var data = neoposeData;
 #if ANDROID_DEVICE
         if (enablehand6dofbyhead == 1)
         {
@@ -421,28 +443,29 @@ public class Pvr_ControllerLink
         }
 
 #endif
-        Quaternion pose = new Quaternion(data[0], data[1], data[2], data[3]);
-        Vector3 pos = new Vector3(data[4], data[5], data[6]);
-        PLOG.D("PvrLog CVControllerData " + hand + "Rotation:" + data[0] + "," + data[1] + "," + data[2] + "," + data[3] + "Position:" +
-               data[4] + "," + data[5] + "," + data[6] + "eulerAngles:" + pose.eulerAngles);
-
-        if (float.IsNaN(pose.x) || float.IsNaN(pose.y) || float.IsNaN(pose.z) || float.IsNaN(pose.w))
+        if (PLOG.logLevel > 2)
         {
-            pose = Quaternion.identity;
+            PLOG.D("PvrLog CVControllerData :" + data[0] + "," + data[1] + "," + data[2] + "," + data[3] + "," +
+                   data[4] + "," + data[5] + "," + data[6]);
         }
 
-        if (float.IsNaN(pos.x) || float.IsNaN(pos.y) || float.IsNaN(pos.z))
+        if (float.IsNaN(data[0]) || float.IsNaN(data[1]) || float.IsNaN(data[2]) || float.IsNaN(data[3]))
         {
-            pos = Vector3.zero;
+            data[0] = data[1] = data[2] = 0;
+            data[3] = 1;
         }
-
-        return new float[7] { pose.x, pose.y, pose.z, pose.w, pos.x, pos.y, pos.z };
+        if (float.IsNaN(data[4]) || float.IsNaN(data[5]) || float.IsNaN(data[6]))
+        {
+            data[4] = data[5] = data[6] = 0;
+        }
+        return data;
     }
 
+    private int[] goblinKeyArray = new int[47];
     //touch.x,touch.y,home,app,touch click,volume up,volume down,trigger,power
     public int[] GetHBControllerKeyData()
     {
-        var data = new int[47];
+        var data = goblinKeyArray;
         for (int i = 0; i < 47; i++)
         {
             data[i] = 0;
@@ -450,11 +473,14 @@ public class Pvr_ControllerLink
 #if ANDROID_DEVICE
         Pvr_UnitySDKAPI.System.UPvr_CallStaticMethod(ref data, javaHummingbirdClass, "getHBKeyEventUnityExt");
 #endif
-        PLOG.D("PvrLog HBControllerKey" + data[0] + data[1] + data[2] + data[3] + data[4] + "," + data[5] + data[6] + data[7] + data[8] + data[9] + "," 
-               + data[10] + data[11] + data[12] + data[13] + data[14] + "," + data[15] + data[16] + data[17] + data[18] + data[19] + "," 
-               + data[20] + data[21] + data[22] + data[23] + data[24] + "," + data[25] + data[26] + data[27] + data[28] + data[29] + "," 
-               + data[30] + data[31] + data[32] + data[33] + data[34] + "," + data[35] + data[36] + data[37] + data[38] + data[39] + "," 
-               + data[40] + data[41] + data[42] + data[43] + data[44] + "," + data[45] + data[46]);
+        if (PLOG.logLevel > 2)
+        {
+            PLOG.D("PvrLog HBControllerKey" + data[0] + data[1] + data[2] + data[3] + data[4] + "," + data[5] + data[6] + data[7] + data[8] + data[9] + ","
+                   + data[10] + data[11] + data[12] + data[13] + data[14] + "," + data[15] + data[16] + data[17] + data[18] + data[19] + ","
+                   + data[20] + data[21] + data[22] + data[23] + data[24] + "," + data[25] + data[26] + data[27] + data[28] + data[29] + ","
+                   + data[30] + data[31] + data[32] + data[33] + data[34] + "," + data[35] + data[36] + data[37] + data[38] + data[39] + ","
+                   + data[40] + data[41] + data[42] + data[43] + data[44] + "," + data[45] + data[46]);
+        }
         return data;
     }
 
@@ -464,13 +490,18 @@ public class Pvr_ControllerLink
 #if ANDROID_DEVICE
      Pvr_UnitySDKAPI.System.UPvr_CallStaticMethod<int>(ref key,javaHummingbirdClass, "getTriggerKeyEvent");
 #endif
-        PLOG.D("PvrLog GoblinControllerTriggerKey:" + key);
+        if (PLOG.logLevel > 2)
+        {
+            PLOG.D("PvrLog GoblinControllerTriggerKey:" + key);
+        }
         return key;
     }
+
+    private int[] neoKeyArray = new int[67];
     //touch.x,touch.y,home,app,touch click,volume up,volume down,trigger,power,X（A），Y（B），Left，Right
     public int[] GetCvControllerKeyData(int hand)
     {
-        var data = new int[67];
+        var data = neoKeyArray;
         for (int i = 0; i < 67; i++)
         {
             data[i] = 0;
@@ -479,19 +510,23 @@ public class Pvr_ControllerLink
 #if ANDROID_DEVICE
         Pvr_UnitySDKAPI.System.UPvr_CallStaticMethod(ref data, javaCVClass, "getControllerKeyEventUnityExt", hand);
 #endif
-        PLOG.D("PvrLog CVControllerKey hand:" + hand + "-" + data[0] + data[1] + data[2] + data[3] + data[4] + "," + data[5] + data[6] + data[7] + data[8] + data[9] + "," 
-               + data[10] + data[11] + data[12] + data[13] + data[14] + "," + data[15] + data[16] + data[17] + data[18] + data[19] + "," 
-               + data[20] + data[21] + data[22] + data[23] + data[24] + "," + data[25] + data[26] + data[27] + data[28] + data[29] + "," 
-               + data[30] + data[31] + data[32] + data[33] + data[34] + "," + data[35] + data[36] + data[37] + data[38] + data[39] + "," 
-               + data[40] + data[41] + data[42] + data[43] + data[44] + "," + data[45] + data[46] + data[47] + data[48] + data[49] + ","
-               + data[50] + data[51] + data[52] + data[53] + data[54] + "," + data[55] + data[56] + data[57] + data[58] + data[59] + ","
-               + data[60] + data[61] + data[62] + data[63] + data[64] + "," + data[65] + data[66]);
+        if (PLOG.logLevel > 2)
+        {
+            PLOG.D("PvrLog CVControllerKey hand:" + hand + "-" + data[0] + data[1] + data[2] + data[3] + data[4] + "," + data[5] + data[6] + data[7] + data[8] + data[9] + ","
+                   + data[10] + data[11] + data[12] + data[13] + data[14] + "," + data[15] + data[16] + data[17] + data[18] + data[19] + ","
+                   + data[20] + data[21] + data[22] + data[23] + data[24] + "," + data[25] + data[26] + data[27] + data[28] + data[29] + ","
+                   + data[30] + data[31] + data[32] + data[33] + data[34] + "," + data[35] + data[36] + data[37] + data[38] + data[39] + ","
+                   + data[40] + data[41] + data[42] + data[43] + data[44] + "," + data[45] + data[46] + data[47] + data[48] + data[49] + ","
+                   + data[50] + data[51] + data[52] + data[53] + data[54] + "," + data[55] + data[56] + data[57] + data[58] + data[59] + ","
+                   + data[60] + data[61] + data[62] + data[63] + data[64] + "," + data[65] + data[66]);
+        }
         return data;
     }
 
+    private int[] neotriggerV = new int[9];
     public int GetCVTriggerValue(int hand)
     {
-        var data = new int[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        var data = neotriggerV;
 #if ANDROID_DEVICE
         Pvr_UnitySDKAPI.System.UPvr_CallStaticMethod(ref data, javaCVClass, "getControllerKeyEvent", hand);
 #endif

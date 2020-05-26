@@ -241,8 +241,8 @@ MonoBehaviour:
   overlayShape: 0
   layerTransform: {fileID: 0}
   layerTextures:
-  - {fileID: 2800000, guid: 25983c17e70ae724180cc6b88c986471, type: 3}
-  - {fileID: 2800000, guid: 25983c17e70ae724180cc6b88c986471, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   layerTextureIds: 0000000000000000
   MVMatrixs:
   - e00: 0

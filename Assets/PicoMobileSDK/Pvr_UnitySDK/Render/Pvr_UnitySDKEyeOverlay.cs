@@ -1,4 +1,7 @@
-﻿#if !UNITY_EDITOR && UNITY_ANDROID 
+﻿// Copyright  2015-2020 Pico Technology Co., Ltd. All Rights Reserved.
+
+
+#if !UNITY_EDITOR && UNITY_ANDROID 
 #define ANDROID_DEVICE
 #endif
 
@@ -26,6 +29,13 @@ public class Pvr_UnitySDKEyeOverlay : MonoBehaviour, IComparable<Pvr_UnitySDKEye
 	public Quaternion[] CameraRotations = new Quaternion[2];
 	public Vector3[] CameraTranslations = new Vector3[2];
     private Camera[] layerEyeCamera = new Camera[2];
+
+    public bool overrideColorScaleAndOffset = false;
+    public Vector4 colorScale = Vector4.one;
+    public Vector4 colorOffset = Vector4.zero;
+
+    private Vector4 overlayLayerColorScaleDefault = Vector4.one;
+    private Vector4 overlayLayerColorOffsetDefault = Vector4.zero;
 
     public bool isExternalAndroidSurface = false;
     public IntPtr externalAndroidSurfaceObject = IntPtr.Zero;
@@ -167,6 +177,35 @@ public class Pvr_UnitySDKEyeOverlay : MonoBehaviour, IComparable<Pvr_UnitySDKEye
         this.InitializeBuffer();
     }
 
+    /// <summary>
+    /// Override Color Scale
+    /// </summary>
+    /// <param name="scale">Scale that the color values</param>
+    /// <param name="offset">Offset that the color values</param>
+    public void SetLayerColorScaleAndOffset(Vector4 scale, Vector4 offset)
+    {
+        colorScale = scale;
+        colorOffset = offset;
+    }
+
+    public Vector4 GetLayerColorScale()
+    {
+        if (!this.overrideColorScaleAndOffset)
+        {
+            return this.overlayLayerColorScaleDefault;
+        }
+
+        return this.colorScale;
+    }
+
+    public Vector4 GetLayerColorOffset()
+    {
+        if (!this.overrideColorScaleAndOffset)
+        {
+            return this.overlayLayerColorOffsetDefault;
+        }
+        return this.colorOffset;
+    }
     #endregion
 
     public enum OverlayShape

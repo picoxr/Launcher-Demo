@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// Copyright  2015-2020 Pico Technology Co., Ltd. All Rights Reserved.
+
+
+using UnityEngine;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;

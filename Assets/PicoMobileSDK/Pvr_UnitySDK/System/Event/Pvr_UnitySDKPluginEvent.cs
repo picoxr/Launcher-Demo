@@ -1,3 +1,6 @@
+// Copyright  2015-2020 Pico Technology Co., Ltd. All Rights Reserved.
+
+
 #if !UNITY_EDITOR && UNITY_ANDROID
 #define ANDROID_DEVICE
 #endif

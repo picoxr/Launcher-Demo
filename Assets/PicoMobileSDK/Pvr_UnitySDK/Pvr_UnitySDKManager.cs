@@ -1,4 +1,7 @@
-﻿#if !UNITY_EDITOR && UNITY_ANDROID 
+﻿// Copyright  2015-2020 Pico Technology Co., Ltd. All Rights Reserved.
+
+
+#if !UNITY_EDITOR && UNITY_ANDROID 
 #define ANDROID_DEVICE
 #endif
 
@@ -195,81 +198,10 @@ public class Pvr_UnitySDKManager : MonoBehaviour
     /// </summary>
     public bool ResetTrackerOnLoad = false;
 
-
-    [SerializeField]
-    private RenderTextureAntiAliasing rtAntiAlising = RenderTextureAntiAliasing.X_2;
-    public RenderTextureAntiAliasing RtAntiAlising
-    {
-        get
-        {
-            return rtAntiAlising;
-        }
-        set
-        {
-            if (value != rtAntiAlising)
-            {
-                rtAntiAlising = value;
-
-            }
-        }
-    }
-    [SerializeField]
-    private RenderTextureDepth rtBitDepth = RenderTextureDepth.BD_24;
-    public RenderTextureDepth RtBitDepth
-    {
-        get
-        {
-            return rtBitDepth;
-        }
-        set
-        {
-            if (value != rtBitDepth)
-                rtBitDepth = value;
-
-        }
-    }
-    [SerializeField]
-    private RenderTextureFormat rtFormat = RenderTextureFormat.Default;
-    public RenderTextureFormat RtFormat
-    {
-        get
-        {
-            return rtFormat;
-        }
-        set
-        {
-            if (value != rtFormat)
-                rtFormat = value;
-
-        }
-    }
-
-    [SerializeField]
-    private Vector2 defaultCustomRTSize = new Vector2(2048, 2048);
-    public Vector2 RtSize
-    {
-        get
-        {
-            return defaultCustomRTSize;
-        }
-        set
-        {
-            if (value != defaultCustomRTSize)
-            {
-                defaultCustomRTSize = value;
-
-                if (pvr_UnitySDKRender != null)
-                {
-                    pvr_UnitySDKRender.ReCreateEyeBuffer();
-                }
-            }
-        }
-    }
-
     // Becareful, you must excute this before Pvr_UnitySDKManager script
     public void ChangeDefaultCustomRtSize(int w, int h)
     {
-        this.defaultCustomRTSize.Set(w, h);
+        Pvr_UnitySDKProjectSetting.GetProjectConfig().customRTSize = new Vector2(w, h);
     }
 
     [SerializeField]
@@ -290,23 +222,6 @@ public class Pvr_UnitySDKManager : MonoBehaviour
                 {
                     pvr_UnitySDKRender.ReCreateEyeBuffer();
                 }
-            }
-        }
-    }
-
-    [SerializeField]
-    private bool defaultRenderTexture;
-    public bool DefaultRenderTexture
-    {
-        get
-        {
-            return defaultRenderTexture;
-        }
-        set
-        {
-            if (value != defaultRenderTexture)
-            {
-                defaultRenderTexture = value;
             }
         }
     }
@@ -415,40 +330,7 @@ public class Pvr_UnitySDKManager : MonoBehaviour
             }
         }
     }
-    //use default fps 
-    [SerializeField]
-    private bool defaultFPS;
-    public bool DefaultFPS
-    {
-        get
-        {
-            return defaultFPS;
-        }
-        set
-        {
-            if (value != defaultFPS)
-            {
-                defaultFPS = value;
-            }
-        }
-    }
-    //custom fps
-    [SerializeField]
-    private int customFPS = 61;
-    public int CustomFPS
-    {
-        get
-        {
-            return customFPS;
-        }
-        set
-        {
-            if (value != customFPS)
-            {
-                customFPS = value;
-            }
-        }
-    }
+    
     //use default range 0.8m
     [SerializeField]
     private bool defaultRange;
@@ -585,24 +467,9 @@ public class Pvr_UnitySDKManager : MonoBehaviour
     [SerializeField]
     private bool copyrightprotection = false;
 
-    [HideInInspector]
-    public bool Copyrightprotection
-    {
-        get { return copyrightprotection; }
-        set
-        {
-            if (value != copyrightprotection)
-            {
-                copyrightprotection = value;
-            }
-        }
-    }
-
     private bool mIsAndroid7 = false;
     public static Func<bool> eventEnterVRMode;
 
-    [HideInInspector]
-    public bool UseSinglePass;
     private static StereoRenderingPathPico stereoRenderPath = StereoRenderingPathPico.MultiPass;
     public static StereoRenderingPathPico StereoRenderPath
     {
@@ -612,6 +479,7 @@ public class Pvr_UnitySDKManager : MonoBehaviour
         }
     }
     public static SDKStereoRendering StereoRendering { get; private set; }
+
     #endregion
 
 
@@ -665,7 +533,10 @@ public class Pvr_UnitySDKManager : MonoBehaviour
         else
         {
             pvr_UnitySDKSensor.InitUnitySDK6DofSensor();
-            pvr_UnitySDKSensor.InitUnitySDKSensor();
+            if (trackingmode == 2 || trackingmode == 3)
+            {
+                pvr_UnitySDKSensor.InitUnitySDKSensor();
+            }
 
         }
         Pvr_UnitySDKAPI.System.UPvr_StartHomeKeyReceiver(this.gameObject.name);
@@ -961,7 +832,8 @@ public class Pvr_UnitySDKManager : MonoBehaviour
         {
             G3LiteTips = Instantiate(Resources.Load("Prefabs/G3LiteTips") as GameObject, transform.Find("Head"), false);
         }
-        LitJson.JsonData callbackdata = jdata["str"];
+        string tmp =  jdata["str"].ToString();
+        LitJson.JsonData callbackdata = LitJson.JsonMapper.ToObject(tmp);
         switch ((int)jdata["type"])
         {
             case -1:
@@ -1294,6 +1166,22 @@ public class Pvr_UnitySDKManager : MonoBehaviour
     void Awake()
     {
 #if ANDROID_DEVICE
+        Debug.Log("DISFT Unity Version:" + Application.unityVersion);
+        Debug.Log("DISFT Customize NeckOffset:" + neckOffset);
+        Debug.Log("DISFT MSAA :" + Pvr_UnitySDKProjectSetting.GetProjectConfig().rtAntiAlising.ToString());
+        if (UnityEngine.Rendering.GraphicsSettings.renderPipelineAsset != null)
+        {
+            Debug.Log("DISFT LWRP = Enable");
+        }
+        Debug.Log("DISFT Content Proctect :" + Pvr_UnitySDKProjectSetting.GetProjectConfig().usecontentprotect.ToString());
+        int isrot = 0;
+        int rot = (int)GlobalIntConfigs.Enable_Activity_Rotation;
+        Render.UPvr_GetIntConfig(rot, ref isrot);
+        if (isrot == 1)
+        {
+            Debug.Log("DISFT ScreenOrientation.Portrait = Enable");
+            Screen.orientation = ScreenOrientation.Portrait;
+        }
         bool supportSinglePass = true;
 #if UNITY_2018_1_OR_NEWER
         if (UnityEngine.Rendering.GraphicsSettings.renderPipelineAsset != null)
@@ -1311,7 +1199,7 @@ public class Pvr_UnitySDKManager : MonoBehaviour
         }
             
 #endif
-        if(UseSinglePass)
+        if(Pvr_UnitySDKProjectSetting.GetProjectConfig().usesinglepass)
         {
             bool result = false;
             if (supportSinglePass)
@@ -1332,7 +1220,6 @@ public class Pvr_UnitySDKManager : MonoBehaviour
         var javaVrActivityClass = new AndroidJavaClass("com.psmart.vrlib.VrActivity");
         var unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
         var activity = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity");
-        Pvr_UnitySDKAPI.System.UPvr_CallStaticMethod(javaVrActivityClass, "SetSecure", activity,SDK.Copyrightprotection);
 #endif
         var controllermanager = FindObjectOfType<Pvr_ControllerManager>();
         isHasController = controllermanager != null;
@@ -1358,17 +1245,19 @@ public class Pvr_UnitySDKManager : MonoBehaviour
         Render.UPvr_GetFloatConfig(frame, ref ffps);
         Application.targetFrameRate = fps > 0 ? fps : (int)ffps;
 
-        if (!DefaultFPS)
+        if (!Pvr_UnitySDKProjectSetting.GetProjectConfig().usedefaultfps)
         {
-            if (CustomFPS <= ffps)
+            if (Pvr_UnitySDKProjectSetting.GetProjectConfig().customfps <= ffps)
             {
-                Application.targetFrameRate = CustomFPS;
+                Application.targetFrameRate = Pvr_UnitySDKProjectSetting.GetProjectConfig().customfps;
             }
             else
             {
                 Application.targetFrameRate = (int)ffps;
             }
         }
+        Debug.Log("DISFT Customize FPS :" + Application.targetFrameRate);
+
 #endif
 
         //setting of neck model 
@@ -1463,7 +1352,7 @@ public class Pvr_UnitySDKManager : MonoBehaviour
 
     void Update()
     {
-        if (isHasController  && iPhoneHMDModeEnabled ==1)
+        if (isHasController && iPhoneHMDModeEnabled == 1)
         {
             if (Controller.UPvr_GetControllerPower(0) == 0 && Pvr_ControllerManager.controllerlink.controller0Connected && Pvr_ControllerManager.controllerlink.Controller0.Rotation.eulerAngles != Vector3.zero)
             {
@@ -1499,7 +1388,7 @@ public class Pvr_UnitySDKManager : MonoBehaviour
             pvr_UnitySDKSensor.SensorUpdate();
         }
 
-        if (trackingmode > 1)
+        if (trackingmode == 2 || trackingmode == 3) 
         {
 #if ANDROID_DEVICE
             if (isHasController && (Controller.UPvr_GetControllerState(0) == ControllerState.Connected || Controller.UPvr_GetControllerState(1) == ControllerState.Connected))
@@ -1551,15 +1440,7 @@ public class Pvr_UnitySDKManager : MonoBehaviour
                 safePanel.transform.localPosition = SDK.HeadPose.Position;
                 safePanel.transform.localRotation = Quaternion.Euler(0, SDK.HeadPose.Orientation.eulerAngles.y, 0);
             }
-#endif
-        }
 
-        picovrTriggered = newPicovrTriggered;
-        newPicovrTriggered = false;
-
-#if ANDROID_DEVICE
-        if (trackingmode == 2 || trackingmode == 3)
-        {
             if (!SDK.HmdOnlyrot)
             {
                 //default 0.8m
@@ -1569,7 +1450,7 @@ public class Pvr_UnitySDKManager : MonoBehaviour
                     {
                         if (Mathf.Sqrt(Mathf.Pow(HeadPose.Position.x, 2.0f) + Mathf.Pow(HeadPose.Position.z, 2.0f)) > 0.56f || Mathf.Sqrt(Mathf.Pow(Controller.UPvr_GetControllerPOS(0).x, 2.0f) + Mathf.Pow(Controller.UPvr_GetControllerPOS(0).z, 2.0f)) > 0.8f || Mathf.Sqrt(Mathf.Pow(Controller.UPvr_GetControllerPOS(1).x, 2.0f) + Mathf.Pow(Controller.UPvr_GetControllerPOS(1).z, 2.0f)) > 0.8f)
                         {
-                            safeArea.transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
+                            safeArea.transform.localScale.Set(1.6f, 1.6f, 1.6f);
                             safeArea.SetActive(true);
                         }
                         else
@@ -1581,7 +1462,7 @@ public class Pvr_UnitySDKManager : MonoBehaviour
                     {
                         if (Mathf.Sqrt(Mathf.Pow(HeadPose.Position.x, 2.0f) + Mathf.Pow(HeadPose.Position.z, 2.0f)) > 0.56f)
                         {
-                            safeArea.transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
+                            safeArea.transform.localScale.Set(1.6f, 1.6f, 1.6f);
                             safeArea.SetActive(true);
                         }
                         else
@@ -1613,7 +1494,7 @@ public class Pvr_UnitySDKManager : MonoBehaviour
                     {
                         if (Mathf.Sqrt(Mathf.Pow(HeadPose.Position.x, 2.0f) + Mathf.Pow(HeadPose.Position.z, 2.0f)) > (0.7f * CustomRange) || Mathf.Sqrt(Mathf.Pow(Controller.UPvr_GetControllerPOS(0).x, 2.0f) + Mathf.Pow(Controller.UPvr_GetControllerPOS(0).z, 2.0f)) > CustomRange || Mathf.Sqrt(Mathf.Pow(Controller.UPvr_GetControllerPOS(1).x, 2.0f) + Mathf.Pow(Controller.UPvr_GetControllerPOS(1).z, 2.0f)) > CustomRange)
                         {
-                            safeArea.transform.localScale = new Vector3(CustomRange / 0.5f, CustomRange / 0.5f, CustomRange / 0.5f);
+                            safeArea.transform.localScale.Set(CustomRange / 0.5f, CustomRange / 0.5f, CustomRange / 0.5f);
                             safeArea.SetActive(true);
                         }
                         else
@@ -1625,8 +1506,7 @@ public class Pvr_UnitySDKManager : MonoBehaviour
                     {
                         if (Mathf.Sqrt(Mathf.Pow(HeadPose.Position.x, 2.0f) + Mathf.Pow(HeadPose.Position.z, 2.0f)) > (0.7f * CustomRange))
                         {
-                            safeArea.transform.localScale =
-                                new Vector3(CustomRange / 0.5f, CustomRange / 0.5f, CustomRange / 0.5f);
+                            safeArea.transform.localScale.Set(CustomRange / 0.5f, CustomRange / 0.5f, CustomRange / 0.5f);
                             safeArea.SetActive(true);
                         }
                         else
@@ -1652,8 +1532,12 @@ public class Pvr_UnitySDKManager : MonoBehaviour
                     }
                 }
             }
-        }
 #endif
+        }
+
+        picovrTriggered = newPicovrTriggered;
+        newPicovrTriggered = false;
+
     }
     void OnDestroy()
     {
@@ -1814,7 +1698,10 @@ public class Pvr_UnitySDKManager : MonoBehaviour
     /************************************    IEnumerator  *************************************/
     private IEnumerator OnResume()
     {
-        if (this.ResetTrackerOnLoad)
+        int ability6dof = 0;
+        int enumindex = (int)Pvr_UnitySDKAPI.GlobalIntConfigs.ABILITY6DOF;
+        Pvr_UnitySDKAPI.Render.UPvr_GetIntConfig(enumindex, ref ability6dof);
+        if (ResetTrackerOnLoad && ability6dof == 1)
         {
             Debug.Log("Reset Tracker OnLoad");
             pvr_UnitySDKSensor.OptionalResetUnitySDKSensor(1, 1);
@@ -1847,7 +1734,11 @@ public class Pvr_UnitySDKManager : MonoBehaviour
             {
                 if (Sensor.Pvr_IsHead6dofReset() && ShowSafePanel)
                 {
-                    safePanel.SetActive(true);
+                    if (trackingmode == 2 || trackingmode == 3)
+                    {
+                        safePanel.SetActive(true);
+                    }
+                    
                 }
             }
 
@@ -1860,6 +1751,11 @@ public class Pvr_UnitySDKManager : MonoBehaviour
 
             bool isPresentationExisted = Pvr_UnitySDKAPI.System.UPvr_IsPresentationExisted();
             PLOG.I("onresume presentation existed ?-------------" + isPresentationExisted.ToString());
+        }
+
+        for (int i = 0; i < Pvr_UnitySDKEyeManager.Instance.Eyes.Length; i++)
+        {
+            Pvr_UnitySDKEyeManager.Instance.Eyes[i].RefreshCameraPosition(Pvr_UnitySDKAPI.System.UPvr_GetIPD());
         }
 
         yield return new WaitForSeconds(1.0f);

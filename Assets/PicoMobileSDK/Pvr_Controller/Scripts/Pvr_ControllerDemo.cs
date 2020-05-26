@@ -1,4 +1,7 @@
-﻿#if !UNITY_EDITOR && UNITY_ANDROID 
+﻿// Copyright  2015-2020 Pico Technology Co., Ltd. All Rights Reserved.
+
+
+#if !UNITY_EDITOR && UNITY_ANDROID 
 #define ANDROID_DEVICE
 #endif
 
@@ -32,10 +35,12 @@ public class Pvr_ControllerDemo : MonoBehaviour
     public float rayDefaultLength = 4;
     private bool isHasController = false;
     private bool headcontrolmode = false;
+    private RaycastHit hit;
 
     void Start()
     {
         ray = new Ray();
+        hit = new RaycastHit();
         if (Pvr_UnitySDKManager.SDK.isHasController)
         {
             Pvr_ControllerManager.PvrServiceStartSuccessEvent += ServiceStartSuccess;
@@ -70,7 +75,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
 
             ray.direction = HeadSetController.transform.position - HeadSetController.transform.parent.parent.Find("Head").position;
             ray.origin = HeadSetController.transform.parent.parent.Find("Head").position;
-            RaycastHit hit;
+            
             if (Physics.Raycast(ray, out hit))
             {
                 if (HeadSetController.name == "SightPointer")
@@ -101,8 +106,9 @@ public class Pvr_ControllerDemo : MonoBehaviour
                         hit.transform.GetComponent<Renderer>().material = gazemat;
                 }
                 lastHit = hit.transform;
+#if UNITY_EDITOR
                 Debug.DrawLine(ray.origin, hit.point, Color.red);
-
+#endif
                 if (Pvr_ControllerManager.Instance.LengthAdaptiveRay)
                 {
                     HeadSetController.transform.position = hit.point;
@@ -146,7 +152,7 @@ public class Pvr_ControllerDemo : MonoBehaviour
             {
                 ray.direction = currentController.transform.Find("dot").position - currentController.transform.Find("start").position;
                 ray.origin = currentController.transform.Find("start").position;
-                RaycastHit hit;
+
                 if (Physics.Raycast(ray, out hit))
                 {
                     currentHit = hit.transform;
@@ -189,7 +195,9 @@ public class Pvr_ControllerDemo : MonoBehaviour
                         }
                     }
                     lastHit = hit.transform;
+#if UNITY_EDITOR
                     Debug.DrawLine(ray.origin, hit.point, Color.red);
+#endif
                     currentController.transform.Find("dot").position = hit.point;
                     if (Pvr_ControllerManager.Instance.LengthAdaptiveRay)
                     {

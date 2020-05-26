@@ -149,7 +149,7 @@ public class Interactive : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
 		s_rootCanvas = FindTopmostCanvas();
 
-		s_head = Camera.main.transform;
+		s_head = GameObject.Find("Head").transform;
 
 		s_tipsDistance = (s_rootCanvas.transform.position - s_head.position).magnitude - k_tipsPopup;
 

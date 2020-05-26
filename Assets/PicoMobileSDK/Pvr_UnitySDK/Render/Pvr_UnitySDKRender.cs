@@ -1,3 +1,6 @@
+// Copyright  2015-2020 Pico Technology Co., Ltd. All Rights Reserved.
+
+
 #if !UNITY_EDITOR && UNITY_ANDROID 
 #define ANDROID_DEVICE
 #endif
@@ -84,6 +87,14 @@ public class Pvr_UnitySDKRender
                  Pvr_UnitySDKAPI.Render.UPvr_ChangeScreenParameters(model, (int)parameters[0], (int)parameters[1], parameters[2], parameters[3], parameters[4]);				 
 				 Screen.sleepTimeout = SleepTimeout.NeverSleep;
             }
+            if (Pvr_UnitySDKAPI.System.UPvr_IsPicoActivity())
+            {
+                bool setMonoPresentation = Pvr_UnitySDKAPI.System.UPvr_SetMonoPresentation();
+                Debug.Log("ConnectToAndriod set monoPresentation success ?-------------" + setMonoPresentation.ToString());
+
+                bool isPresentationExisted = Pvr_UnitySDKAPI.System.UPvr_IsPresentationExisted();
+                Debug.Log("ConnectToAndriod presentation existed ?-------------" + isPresentationExisted.ToString());
+            }
         
         }
         catch (AndroidJavaException e)
@@ -114,13 +125,7 @@ public class Pvr_UnitySDKRender
         {
             if (CreateEyeBuffer())
             {
-                float separation = 0.0625f;
-                int enumindex = (int)Pvr_UnitySDKAPI.GlobalFloatConfigs.IPD;
-                if (0 != Pvr_UnitySDKAPI.Render.UPvr_GetFloatConfig(enumindex, ref separation))
-                {
-                    PLOG.E("Cannot get ipd");
-                    separation = 0.0625f;
-                }
+                float separation = Pvr_UnitySDKAPI.System.UPvr_GetIPD();
                 Pvr_UnitySDKManager.SDK.leftEyeOffset = new Vector3(-separation / 2, 0, 0);
                 Pvr_UnitySDKManager.SDK.rightEyeOffset = new Vector3(separation / 2, 0, 0);
                 return true;
@@ -140,6 +145,7 @@ public class Pvr_UnitySDKRender
     private bool CreateEyeBuffer()
     {
         Vector2 resolution = GetEyeBufferResolution();
+        Pvr_UnitySDKAPI.System.UPvr_SetSinglePassDepthBufferWidthHeight((int)resolution.x, (int)resolution.y);       
         Pvr_UnitySDKManager.SDK.eyeTextures = new RenderTexture[Pvr_UnitySDKManager.eyeTextureCount];
 
         // eye buffer
@@ -214,11 +220,11 @@ public class Pvr_UnitySDKRender
     {
         int x = (int)resolution.x;
         int y = (int)resolution.y;
-        Pvr_UnitySDKManager.SDK.eyeTextures[eyeTextureIndex] = new RenderTexture(x, y, (int)Pvr_UnitySDKManager.SDK.RtBitDepth, Pvr_UnitySDKManager.SDK.RtFormat);
+        Pvr_UnitySDKManager.SDK.eyeTextures[eyeTextureIndex] = new RenderTexture(x, y, (int)Pvr_UnitySDKProjectSetting.GetProjectConfig().rtBitDepth, Pvr_UnitySDKProjectSetting.GetProjectConfig().rtFormat);
         if (Pvr_UnitySDKManager.StereoRenderPath == StereoRenderingPathPico.MultiPass)
         {
             Pvr_UnitySDKManager.SDK.eyeTextures[eyeTextureIndex].anisoLevel = 0;
-            Pvr_UnitySDKManager.SDK.eyeTextures[eyeTextureIndex].antiAliasing = Mathf.Max(QualitySettings.antiAliasing, (int)Pvr_UnitySDKManager.SDK.RtAntiAlising);
+            Pvr_UnitySDKManager.SDK.eyeTextures[eyeTextureIndex].antiAliasing = Mathf.Max(QualitySettings.antiAliasing, (int)Pvr_UnitySDKProjectSetting.GetProjectConfig().rtAntiAlising);
             Debug.Log("MultiPass ConfigureEyeBuffer eyeTextureIndex " + eyeTextureIndex);
         }
         else if (Pvr_UnitySDKManager.StereoRenderPath == StereoRenderingPathPico.SinglePass)
@@ -243,7 +249,7 @@ public class Pvr_UnitySDKRender
 
     public bool ReCreateEyeBuffer()
     {
-        if (!Pvr_UnitySDKManager.SDK.DefaultRenderTexture)
+        if (!Pvr_UnitySDKProjectSetting.GetProjectConfig().usedefaultRenderTexture)
         {
             for (int i = 0; i < Pvr_UnitySDKManager.eyeTextureCount; i++)
             {
@@ -309,7 +315,7 @@ public class Pvr_UnitySDKRender
         Vector2 eyeBufferResolution;
         int w = 1024;
         int h = 1024;
-        if (Pvr_UnitySDKManager.SDK.DefaultRenderTexture)
+        if (Pvr_UnitySDKProjectSetting.GetProjectConfig().usedefaultRenderTexture)
         {
             try
             {
@@ -326,12 +332,12 @@ public class Pvr_UnitySDKRender
         }
         else
         {
-            w = (int)(Pvr_UnitySDKManager.SDK.RtSize.x * Pvr_UnitySDKManager.SDK.RtScaleFactor);
-            h = (int)(Pvr_UnitySDKManager.SDK.RtSize.y * Pvr_UnitySDKManager.SDK.RtScaleFactor);
+            w = (int)(Pvr_UnitySDKProjectSetting.GetProjectConfig().customRTSize.x * Pvr_UnitySDKManager.SDK.RtScaleFactor);
+            h = (int)(Pvr_UnitySDKProjectSetting.GetProjectConfig().customRTSize.y * Pvr_UnitySDKManager.SDK.RtScaleFactor);
         }
 
         eyeBufferResolution = new Vector2(w, h);
-        Debug.Log("eyeBufferResolution:" + eyeBufferResolution + ", scaleFactor: " + Pvr_UnitySDKManager.SDK.RtScaleFactor);
+        Debug.Log("DISFT Customize RenderTexture:" + eyeBufferResolution + ", scaleFactor: " + Pvr_UnitySDKManager.SDK.RtScaleFactor);
 
         return eyeBufferResolution;
     }

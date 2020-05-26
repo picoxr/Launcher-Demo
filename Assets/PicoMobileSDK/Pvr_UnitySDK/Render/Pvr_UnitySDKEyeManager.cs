@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// Copyright  2015-2020 Pico Technology Co., Ltd. All Rights Reserved.
+
+
+using UnityEngine;
 using System.Collections;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -73,7 +76,7 @@ public class Pvr_UnitySDKEyeManager : MonoBehaviour
 
     // wait for a number of frames, because custom splash screen(2D loading) need display time when first start-up.
     private readonly int WaitSplashScreenFrames = 3;
-    public bool isFirstStartup = true;
+    private bool isFirstStartup = true;
     private int frameNum = 0;
 
     /// <summary>
@@ -81,6 +84,9 @@ public class Pvr_UnitySDKEyeManager : MonoBehaviour
     /// </summary>
     private int MaxCompositorLayers = 15;
 
+    [SerializeField]
+    [HideInInspector]
+    public bool FoveatedRendering;
     [SerializeField]
     [HideInInspector]
     private EFoveationLevel foveationLevel = EFoveationLevel.None;
@@ -93,7 +99,7 @@ public class Pvr_UnitySDKEyeManager : MonoBehaviour
         }
         set
         {
-            if(value != foveationLevel)
+            if (value != foveationLevel)
             {
                 foveationLevel = value;
                 if (Application.isPlaying && FFRLevelChanged != null)
@@ -202,6 +208,32 @@ public class Pvr_UnitySDKEyeManager : MonoBehaviour
         }
         SetCamerasEnableByStereoRendering();
         SetupMonoCamera();
+
+        foreach (var t in Pvr_UnitySDKEyeManager.Instance.Overlays)
+        {
+            if (t.overlayType == Pvr_UnitySDKEyeOverlay.OverlayType.Overlay)
+            {
+                if (t.overlayShape ==
+                    Pvr_UnitySDKEyeOverlay.OverlayShape.Cylinder)
+                {
+                    Debug.Log("DISFT Cylinder OverLay = Enable");
+                }
+                if (t.overlayShape ==
+                    Pvr_UnitySDKEyeOverlay.OverlayShape.Equirect)
+                {
+                    Debug.Log("DISFT 360 OverLay= Enable");
+                }
+                if (t.overlayShape ==
+                    Pvr_UnitySDKEyeOverlay.OverlayShape.Quad)
+                {
+                    Debug.Log("DISFT 2D OverLay= Enable");
+                }
+            }
+            if (t.overlayType == Pvr_UnitySDKEyeOverlay.OverlayType.Underlay)
+            {
+                Debug.Log("DISFT UnderLay= Enable");
+            }
+        }
 #endif
 
 #if UNITY_EDITOR
@@ -295,6 +327,12 @@ public class Pvr_UnitySDKEyeManager : MonoBehaviour
             if (isFirstStartup && frameNum == this.WaitSplashScreenFrames)
             {
                 Pvr_UnitySDKAPI.System.UPvr_RemovePlatformLogo();
+                if (Pvr_UnitySDKManager.SDK.ResetTrackerOnLoad)
+                {
+                    Debug.Log("Reset Tracker OnLoad");
+                    Pvr_UnitySDKManager.pvr_UnitySDKSensor.OptionalResetUnitySDKSensor(1, 1);
+                }
+
                 Pvr_UnitySDKAPI.System.UPvr_StartVRModel();
                 isFirstStartup = false;
             }
@@ -362,7 +400,7 @@ public class Pvr_UnitySDKEyeManager : MonoBehaviour
                 for (int i = 0; i < Overlays.Length; i++)
                 {
                     if (!Overlays[i].isActiveAndEnabled) continue;
-                    if (Overlays[i].layerTextures[0] == null && Overlays[i].layerTextures[1] == null) continue;
+                    if (Overlays[i].layerTextures[0] == null && Overlays[i].layerTextures[1] == null && !Overlays[i].isExternalAndroidSurface) continue;
                     if (Overlays[i].layerTransform != null && !Overlays[i].layerTransform.gameObject.activeSelf) continue;
                  
                     layerFlags = 0;
@@ -385,10 +423,10 @@ public class Pvr_UnitySDKEyeManager : MonoBehaviour
                             }
 
                             Pvr_UnitySDKAPI.Render.UPvr_SetOverlayModelViewMatrix((int)Overlays[i].overlayType, (int)Overlays[i].overlayShape, Overlays[i].layerTextureIds[0], (int)Pvr_UnitySDKAPI.Eye.LeftEye, overlayLayerDepth, isHeadLocked, layerFlags, Overlays[i].MVMatrixs[0],
-							Overlays[i].ModelScales[0], Overlays[i].ModelRotations[0], Overlays[i].ModelTranslations[0], Overlays[i].CameraRotations[0], Overlays[i].CameraTranslations[0]);
+							Overlays[i].ModelScales[0], Overlays[i].ModelRotations[0], Overlays[i].ModelTranslations[0], Overlays[i].CameraRotations[0], Overlays[i].CameraTranslations[0], Overlays[i].GetLayerColorScale(), Overlays[i].GetLayerColorOffset());
 
                             Pvr_UnitySDKAPI.Render.UPvr_SetOverlayModelViewMatrix((int)Overlays[i].overlayType, (int)Overlays[i].overlayShape, Overlays[i].layerTextureIds[1], (int)Pvr_UnitySDKAPI.Eye.RightEye, overlayLayerDepth, isHeadLocked, layerFlags, Overlays[i].MVMatrixs[1],
-							Overlays[i].ModelScales[1], Overlays[i].ModelRotations[1], Overlays[i].ModelTranslations[1], Overlays[i].CameraRotations[1], Overlays[i].CameraTranslations[1]);
+							Overlays[i].ModelScales[1], Overlays[i].ModelRotations[1], Overlays[i].ModelTranslations[1], Overlays[i].CameraRotations[1], Overlays[i].CameraTranslations[1], Overlays[i].GetLayerColorScale(), Overlays[i].GetLayerColorOffset());
 
                             overlayLayerDepth++;
                         }
@@ -402,10 +440,10 @@ public class Pvr_UnitySDKEyeManager : MonoBehaviour
                             }
 
                             Pvr_UnitySDKAPI.Render.UPvr_SetOverlayModelViewMatrix((int)Overlays[i].overlayType, (int)Overlays[i].overlayShape, Overlays[i].layerTextureIds[0], (int)Pvr_UnitySDKAPI.Eye.LeftEye, underlayLayerDepth, false, layerFlags, Overlays[i].MVMatrixs[0],
-							Overlays[i].ModelScales[0], Overlays[i].ModelRotations[0], Overlays[i].ModelTranslations[0], Overlays[i].CameraRotations[0], Overlays[i].CameraTranslations[0]);
+							Overlays[i].ModelScales[0], Overlays[i].ModelRotations[0], Overlays[i].ModelTranslations[0], Overlays[i].CameraRotations[0], Overlays[i].CameraTranslations[0], Overlays[i].GetLayerColorScale(), Overlays[i].GetLayerColorOffset());
 
                             Pvr_UnitySDKAPI.Render.UPvr_SetOverlayModelViewMatrix((int)Overlays[i].overlayType, (int)Overlays[i].overlayShape, Overlays[i].layerTextureIds[1], (int)Pvr_UnitySDKAPI.Eye.RightEye, underlayLayerDepth, false, layerFlags, Overlays[i].MVMatrixs[1],
-							Overlays[i].ModelScales[1], Overlays[i].ModelRotations[1], Overlays[i].ModelTranslations[1], Overlays[i].CameraRotations[1], Overlays[i].CameraTranslations[1]);
+							Overlays[i].ModelScales[1], Overlays[i].ModelRotations[1], Overlays[i].ModelTranslations[1], Overlays[i].CameraRotations[1], Overlays[i].CameraTranslations[1], Overlays[i].GetLayerColorScale(), Overlays[i].GetLayerColorOffset());
 
                             underlayLayerDepth++;
                         }
@@ -420,8 +458,8 @@ public class Pvr_UnitySDKEyeManager : MonoBehaviour
                         }
 
                         // 360 Overlay Equirectangular Texture
-                        Pvr_UnitySDKAPI.Render.UPvr_SetupLayerData(0, (int)Pvr_UnitySDKAPI.Eye.LeftEye, Overlays[i].layerTextureIds[0], (int)Overlays[i].overlayShape, layerFlags);
-                        Pvr_UnitySDKAPI.Render.UPvr_SetupLayerData(0, (int)Pvr_UnitySDKAPI.Eye.RightEye, Overlays[i].layerTextureIds[1], (int)Overlays[i].overlayShape, layerFlags);
+                        Pvr_UnitySDKAPI.Render.UPvr_SetupLayerData(0, (int)Pvr_UnitySDKAPI.Eye.LeftEye, Overlays[i].layerTextureIds[0], (int)Overlays[i].overlayShape, layerFlags, Overlays[i].GetLayerColorScale(), Overlays[i].GetLayerColorOffset());
+                        Pvr_UnitySDKAPI.Render.UPvr_SetupLayerData(0, (int)Pvr_UnitySDKAPI.Eye.RightEye, Overlays[i].layerTextureIds[1], (int)Overlays[i].overlayShape, layerFlags, Overlays[i].GetLayerColorScale(), Overlays[i].GetLayerColorOffset());
                     }
                 }
 #endregion
@@ -464,7 +502,7 @@ public class Pvr_UnitySDKEyeManager : MonoBehaviour
 
 #region EyeTrack  
     [HideInInspector]
-    public bool trackEyes = false;
+    public bool EyeTracking = false;
     [HideInInspector]
     public Vector3 eyePoint;
     private EyeTrackingData eyePoseData;
@@ -475,25 +513,18 @@ public class Pvr_UnitySDKEyeManager : MonoBehaviour
         bool supportEyeTracking = (trackingMode & (int)Pvr_UnitySDKAPI.TrackingMode.PVR_TRACKING_MODE_EYE) != 0;
         bool result = false;
 
-        if (trackEyes && supportEyeTracking)
+        if (EyeTracking && supportEyeTracking)
         {
             result = Pvr_UnitySDKAPI.System.UPvr_setTrackingMode((int)Pvr_UnitySDKAPI.TrackingMode.PVR_TRACKING_MODE_POSITION | (int)Pvr_UnitySDKAPI.TrackingMode.PVR_TRACKING_MODE_EYE);
         }
-        Debug.Log("SetEyeTrackingMode trackEyes " + trackEyes + " supportEyeTracking " + supportEyeTracking + " result " + result);
+        Debug.Log("SetEyeTrackingMode EyeTracking " + EyeTracking + " supportEyeTracking " + supportEyeTracking + " result " + result);
         return result;
     }
 
     public Vector3 GetEyeTrackingPos()
     {
-        if (!Pvr_UnitySDKEyeManager.Instance.trackEyes)
+        if (!Pvr_UnitySDKEyeManager.Instance.EyeTracking)
             return Vector3.zero;
-
-        EyeDeviceInfo info = GetDeviceInfo();
-
-        Vector3 frustumSize = Vector3.zero;
-        frustumSize.x = 0.5f * (info.targetFrustumLeft.right - info.targetFrustumLeft.left);
-        frustumSize.y = 0.5f * (info.targetFrustumLeft.top - info.targetFrustumLeft.bottom);
-        frustumSize.z = info.targetFrustumLeft.near;
 
         bool result = Pvr_UnitySDKAPI.System.UPvr_getEyeTrackingData(ref eyePoseData);
         if (!result)
@@ -502,42 +533,47 @@ public class Pvr_UnitySDKEyeManager : MonoBehaviour
             return Vector3.zero;
         }
 
-        var combinedDirection = Vector3.zero;
-        if ((eyePoseData.combinedEyePoseStatus & (int)pvrEyePoseStatus.kGazeVectorValid) != 0)
-            combinedDirection = eyePoseData.combinedEyeGazeVector;
+        EyeDeviceInfo info = GetDeviceInfo();
+        Vector3 frustumSize = Vector3.zero;
+        frustumSize.x = 0.5f * (info.targetFrustumLeft.right - info.targetFrustumLeft.left);
+        frustumSize.y = 0.5f * (info.targetFrustumLeft.top - info.targetFrustumLeft.bottom);
+        frustumSize.z = info.targetFrustumLeft.near;
 
-        if (combinedDirection.sqrMagnitude > 0f)
+        var combinedDirection = eyePoseData.foveatedGazeDirection;
+        float denominator = Vector3.Dot(combinedDirection, Vector3.forward);
+        if (denominator > float.Epsilon)
         {
-            combinedDirection.Normalize();
-            
-            float denominator = Vector3.Dot(combinedDirection, Vector3.forward);
-            if (denominator > float.Epsilon)
-            {
-                eyePoint = combinedDirection * frustumSize.z / denominator;
-                eyePoint.x /= frustumSize.x; // [-1..1]
-                eyePoint.y /= frustumSize.y; // [-1..1]
-            }
+            eyePoint = combinedDirection * (frustumSize.z / denominator);
+            eyePoint.x /= frustumSize.x; // [-1..1]
+            eyePoint.y /= frustumSize.y; // [-1..1]
         }
         return eyePoint;
     }
 
     private EyeDeviceInfo GetDeviceInfo()
     {
+        float vfov = Pvr_UnitySDKManager.SDK.EyeVFoV;
+        float tanhalfvfov = Mathf.Tan(vfov / 2f * Mathf.Deg2Rad);
+
+        float hfov = Pvr_UnitySDKManager.SDK.EyeHFoV;
+        float tanhalfhfov = Mathf.Tan(hfov / 2f * Mathf.Deg2Rad);
+
         EyeDeviceInfo info;
-        info.targetFrustumLeft.left = -0.0428f;
-        info.targetFrustumLeft.right = 0.0428f;
-        info.targetFrustumLeft.top = 0.0428f;
-        info.targetFrustumLeft.bottom = -0.0428f;
-        info.targetFrustumLeft.near = 0.0508f;
-        info.targetFrustumLeft.far = 100f;
-        info.targetFrustumRight.left = -0.0428f;
-        info.targetFrustumRight.right = 0.0428f;
-        info.targetFrustumRight.top = 0.0428f;
-        info.targetFrustumRight.bottom = -0.0428f;
-        info.targetFrustumRight.near = 0.0508f;
-        info.targetFrustumRight.far = 100f;
+        info.targetFrustumLeft.left = -(LeftEyeCamera.nearClipPlane * tanhalfhfov);
+        info.targetFrustumLeft.right = LeftEyeCamera.nearClipPlane * tanhalfhfov;
+        info.targetFrustumLeft.top = LeftEyeCamera.nearClipPlane * tanhalfvfov;
+        info.targetFrustumLeft.bottom = -(LeftEyeCamera.nearClipPlane * tanhalfvfov);
+        info.targetFrustumLeft.near = LeftEyeCamera.nearClipPlane;
+        info.targetFrustumLeft.far = LeftEyeCamera.farClipPlane;
+
+        info.targetFrustumRight.left = -(RightEyeCamera.nearClipPlane * tanhalfhfov);
+        info.targetFrustumRight.right = RightEyeCamera.nearClipPlane * tanhalfhfov;
+        info.targetFrustumRight.top = RightEyeCamera.nearClipPlane * tanhalfvfov;
+        info.targetFrustumRight.bottom = -(RightEyeCamera.nearClipPlane * tanhalfvfov);
+        info.targetFrustumRight.near = RightEyeCamera.nearClipPlane;
+        info.targetFrustumRight.far = RightEyeCamera.farClipPlane;
 
         return info;
     }
-#endregion
+    #endregion
 }
