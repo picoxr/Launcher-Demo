@@ -13,3 +13,6 @@ This demo is for developers' reference on how to implement their own launcher. I
 ## Usage:
 
 Scene: Assets->Project->Scene->Scene
+
+## Note:
+- If you have any questions/comments, please raise requests at [**PicoDevSupport Portal**](https://picodevsupport.atlassian.net/servicedesk/customer/user/login?
