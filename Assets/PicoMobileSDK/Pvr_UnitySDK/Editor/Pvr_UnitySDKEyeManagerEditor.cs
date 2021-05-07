@@ -20,12 +20,9 @@ public class Pvr_UnitySDKEyeManagerEditor : Editor
         firstLevelStyle.fontSize = 12;
         firstLevelStyle.wordWrap = true;
 
-        var guiContent = new GUIContent();
         Pvr_UnitySDKEyeManager sdkEyeManager = (Pvr_UnitySDKEyeManager)target;
 
-        guiContent.text = "Eye Tracking";
-        guiContent.tooltip = "Before calling EyeTracking API, enable this option first（For Neo 2 Eye device ONLY). ";
-        sdkEyeManager.EyeTracking = EditorGUILayout.Toggle(guiContent, sdkEyeManager.EyeTracking);
+        sdkEyeManager.EyeTracking = EditorGUILayout.Toggle("Eye Tracking", sdkEyeManager.EyeTracking);
         if(sdkEyeManager.EyeTracking)
         {
             EditorGUILayout.BeginVertical("box");
@@ -34,14 +31,16 @@ public class Pvr_UnitySDKEyeManagerEditor : Editor
             EditorGUILayout.EndVertical();
         }
 
-        guiContent.text = "Foveated Rendering";
-        guiContent.tooltip = "Helps reducing the power usage and slightly increases performance by sacrificing the quality of the peripheral region. In addition, enable both Eye-Tracking and Foveated Rendering will switch to Dynamic Foveated Rendering automatically.";
-        sdkEyeManager.FoveatedRendering = EditorGUILayout.Toggle(guiContent, sdkEyeManager.FoveatedRendering);
+        sdkEyeManager.FoveatedRendering = EditorGUILayout.Toggle("Foveated Rendering", sdkEyeManager.FoveatedRendering);
         if (sdkEyeManager.FoveatedRendering)
         {
             EditorGUI.indentLevel = 1;
             sdkEyeManager.FoveationLevel = (EFoveationLevel)EditorGUILayout.EnumPopup("Foveation Level", sdkEyeManager.FoveationLevel);
             EditorGUI.indentLevel = 0;
+        }
+        else
+        {
+            sdkEyeManager.FoveationLevel = EFoveationLevel.None;
         }
 
         EditorUtility.SetDirty(sdkEyeManager);

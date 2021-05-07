@@ -10,29 +10,19 @@ public class Pvr_UnitySDKEyeOverlayEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        var guiContent = new GUIContent();
         foreach (Pvr_UnitySDKEyeOverlay overlayTarget in targets)
         {
             EditorGUILayout.LabelField("Overlay Display Order", EditorStyles.boldLabel);
-            guiContent.text = "Overlay Type";
-            guiContent.tooltip = "Whether this overlay should layer behind the scene or in front of it.";
-            overlayTarget.overlayType = (Pvr_UnitySDKEyeOverlay.OverlayType)EditorGUILayout.EnumPopup(guiContent, overlayTarget.overlayType);
-            guiContent.text = "Layer Index";
-            guiContent.tooltip = "Depth value used to sort overlays in the scene, smaller value appears in front.";
-            overlayTarget.layerIndex = EditorGUILayout.IntField(guiContent, overlayTarget.layerIndex);
+            overlayTarget.overlayType = (Pvr_UnitySDKEyeOverlay.OverlayType)EditorGUILayout.EnumPopup("Overlay Type", overlayTarget.overlayType);
+            overlayTarget.layerIndex = EditorGUILayout.IntField("Layer Index", overlayTarget.layerIndex);
 
             EditorGUILayout.Separator();
-            guiContent.text = "Overlay Shape";
-            guiContent.tooltip = "The shape of this overlay.";
-            EditorGUILayout.LabelField(guiContent, EditorStyles.boldLabel);
-            overlayTarget.overlayShape = (Pvr_UnitySDKEyeOverlay.OverlayShape)EditorGUILayout.EnumPopup(guiContent, overlayTarget.overlayShape);
+            EditorGUILayout.LabelField("Overlay Shape", EditorStyles.boldLabel);
+            overlayTarget.overlayShape = (Pvr_UnitySDKEyeOverlay.OverlayShape)EditorGUILayout.EnumPopup("Overlay Shape", overlayTarget.overlayShape);
             
             EditorGUILayout.Separator();
             EditorGUILayout.LabelField("Overlay Textures", EditorStyles.boldLabel);
-            guiContent.text = "External Surface";
-            guiContent.tooltip = "On Android, retrieve an Android Surface object to render to (e.g., video playback).";
-            overlayTarget.isExternalAndroidSurface = EditorGUILayout.Toggle(guiContent, overlayTarget.isExternalAndroidSurface);
-
+            overlayTarget.isExternalAndroidSurface = EditorGUILayout.Toggle("External Surface", overlayTarget.isExternalAndroidSurface);
             var labelControlRect = EditorGUILayout.GetControlRect();
             EditorGUI.LabelField(new Rect(labelControlRect.x, labelControlRect.y, labelControlRect.width / 2, labelControlRect.height), new GUIContent("Left Texture", "Texture used for the left eye"));
             EditorGUI.LabelField(new Rect(labelControlRect.x + labelControlRect.width / 2, labelControlRect.y, labelControlRect.width / 2, labelControlRect.height), new GUIContent("Right Texture", "Texture used for the right eye"));
@@ -43,18 +33,11 @@ public class Pvr_UnitySDKEyeOverlayEditor : Editor
 
             EditorGUILayout.Separator();
             EditorGUILayout.LabelField("Color Scale And Offset", EditorStyles.boldLabel);
-            guiContent.text = "Override Color Scale";
-            guiContent.tooltip = "Manually set color scale and offset of this layer.";
-            overlayTarget.overrideColorScaleAndOffset = EditorGUILayout.Toggle(guiContent, overlayTarget.overrideColorScaleAndOffset);
+            overlayTarget.overrideColorScaleAndOffset = EditorGUILayout.Toggle(new GUIContent("Override Color Scale", "Set color scale and offset of this layer."), overlayTarget.overrideColorScaleAndOffset);
             if (overlayTarget.overrideColorScaleAndOffset)
             {
-                guiContent.text = "Color Scale";
-                guiContent.tooltip = "Scale that the color values for this overlay will be multiplied by.";
-                Vector4 colorScale = EditorGUILayout.Vector4Field(guiContent, overlayTarget.colorScale);
-
-                guiContent.text = "Color Offset";
-                guiContent.tooltip = "Offset that the color values for this overlay will be added to.";
-                Vector4 colorOffset = EditorGUILayout.Vector4Field(guiContent, overlayTarget.colorOffset);
+                Vector4 colorScale = EditorGUILayout.Vector4Field(new GUIContent("Color Scale", "Scale that the color values"), overlayTarget.colorScale);
+                Vector4 colorOffset = EditorGUILayout.Vector4Field(new GUIContent("Color Offset", "Offset that the color values"), overlayTarget.colorOffset);
                 overlayTarget.SetLayerColorScaleAndOffset(colorScale, colorOffset);
             }
         }

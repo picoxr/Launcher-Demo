@@ -8,6 +8,4 @@ using UnityEngine;
 public class CPicoSDKSettingAsset : ScriptableObject
 {
     public bool IgnoreSDKSetting = false;
-    public bool DontshowBuildWaring = false;
-    public bool  AppIDChecked = false;
 }

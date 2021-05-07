@@ -27,6 +27,7 @@ public class Pvr_ControllerModuleInit : MonoBehaviour
     private GameObject rayLine;
     [SerializeField]
     private GameObject controller;
+    private int controllerDof = -1;
     private bool moduleState = true;
 
     void Awake()

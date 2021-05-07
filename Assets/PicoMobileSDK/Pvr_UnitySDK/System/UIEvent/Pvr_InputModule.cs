@@ -21,10 +21,6 @@ public class Pvr_InputModule : PointerInputModule
     [Pvr_EnumFlags]
     public ConfirmBtn confirmBtn = ConfirmBtn.TouchPad;
 
-
-    private List<RaycastResult> rayCasts = new List<RaycastResult>();
-    private RaycastResult rayCastResult = new RaycastResult();
-
     public virtual void Initialise()
     {
         pointers.Clear();
@@ -81,13 +77,15 @@ public class Pvr_InputModule : PointerInputModule
 
     protected virtual List<RaycastResult> CheckRaycasts(Pvr_UIPointer pointer)
     {
-        rayCastResult.worldPosition = pointer.GetOriginPosition();
-        rayCastResult.worldNormal = pointer.GetOriginForward();
+        var raycastResult = new RaycastResult();
+        raycastResult.worldPosition = pointer.GetOriginPosition();
+        raycastResult.worldNormal = pointer.GetOriginForward();
 
-        pointer.pointerEventData.pointerCurrentRaycast = rayCastResult;
+        pointer.pointerEventData.pointerCurrentRaycast = raycastResult;
 
-        eventSystem.RaycastAll(pointer.pointerEventData, rayCasts);
-        return rayCasts;
+        List<RaycastResult> raycasts = new List<RaycastResult>();
+        eventSystem.RaycastAll(pointer.pointerEventData, raycasts);
+        return raycasts;
     }
 
     protected virtual bool CheckTransformTree(Transform target, Transform source)
@@ -159,45 +157,6 @@ public class Pvr_InputModule : PointerInputModule
                 pointer.pointerEventData.hovered.Remove(pointer.pointerEventData.pointerEnter);
                 pointer.pointerEventData.pointerEnter = null;
             }
-
-            if (results.Count > 0 && pointer.pointerEventData.pointerEnter != results[0].gameObject)
-            {
-                foreach (var result in results)
-                {
-                    if (!ValidElement(result.gameObject))
-                    {
-                        continue;
-                    }
-
-                    var target = ExecuteEvents.ExecuteHierarchy(result.gameObject, pointer.pointerEventData, ExecuteEvents.pointerEnterHandler);
-                    if (target != null)
-                    {
-                        var selectable = target.GetComponent<Selectable>();
-                        if (selectable)
-                        {
-                            var noNavigation = new Navigation();
-                            noNavigation.mode = Navigation.Mode.None;
-                            selectable.navigation = noNavigation;
-                        }
-
-                        pointer.pointerEventData.hovered.Remove(pointer.pointerEventData.pointerEnter);
-                        pointer.OnUIPointerElementEnter(pointer.SetUIPointerEvent(result, target, pointer.hoveringElement));
-                        pointer.hoveringElement = target;
-                        pointer.pointerEventData.pointerCurrentRaycast = result;
-                        pointer.pointerEventData.pointerEnter = target;
-                        pointer.pointerEventData.hovered.Add(pointer.pointerEventData.pointerEnter);
-                        break;
-                    }
-                    else
-                    {
-                        if (result.gameObject != pointer.hoveringElement)
-                        {
-                            pointer.OnUIPointerElementEnter(pointer.SetUIPointerEvent(result, result.gameObject, pointer.hoveringElement));
-                        }
-                        pointer.hoveringElement = result.gameObject;
-                    }
-                }
-            }
         }
         else
         {
@@ -256,7 +215,6 @@ public class Pvr_InputModule : PointerInputModule
                 break;
         }
     }
-
     protected virtual void ClickOnUp(Pvr_UIPointer pointer, List<RaycastResult> results)
     {
         pointer.pointerEventData.eligibleForClick = pointer.ValidClick(false);
@@ -266,7 +224,6 @@ public class Pvr_InputModule : PointerInputModule
             IsEligibleClick(pointer, results);
         }
     }
-
 
     protected virtual void ClickOnDown(Pvr_UIPointer pointer, List<RaycastResult> results, bool forceClick = false)
     {
@@ -360,7 +317,6 @@ public class Pvr_InputModule : PointerInputModule
                     ExecuteEvents.ExecuteHierarchy(raycast.gameObject, pointer.pointerEventData, ExecuteEvents.dropHandler);
                 }
                 pointer.pointerEventData.pointerDrag = null;
-
             }
         }
         else if (pointer.pointerEventData.dragging)

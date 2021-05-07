@@ -21,15 +21,11 @@ public class Pvr_ControllerInit : MonoBehaviour
     [SerializeField]
     private GameObject goblin;
     [SerializeField]
+    private GameObject neo;
+    [SerializeField]
     private GameObject g2;
     [SerializeField]
-    private GameObject neo2L;
-    [SerializeField]
-    private GameObject neo2R;
-    [SerializeField]
-    private GameObject neo3L;
-    [SerializeField]
-    private GameObject neo3R;
+    private GameObject neo2;
     [SerializeField]
     private Material standardMat;
     [SerializeField]
@@ -38,17 +34,12 @@ public class Pvr_ControllerInit : MonoBehaviour
     private int controllerType = -1;
     [HideInInspector]
     public bool loadModelSuccess = false;
-
-    private int systemOrUnity = 0;
-    private JsonData curControllerData;
-    private string modelName = "";
-    private string texFormat = "";
-    private string prePath = "";
     private string modelFilePath = "/system/media/PvrRes/controller/";
-    private const string goblinTexbasePath = "Controller/controller1/controller1";
-    private const string g2TexbasePath = "Controller/controller3/controller3";
-    private const string neo2TexbasePath = "Controller/controller4/controller4";
-    private const string neo3TexbasePath = "Controller/controller5/controller5";
+    private int systemOrUnity = 0;
+
+    private JsonData curControllerData;
+    private int curControllerNum = 1;
+    private string modelName = "";
 
     void Awake()
     {
@@ -66,10 +57,7 @@ public class Pvr_ControllerInit : MonoBehaviour
         }
 
 #if UNITY_EDITOR
-        var neo2Go = Instantiate(Variety == ControllerVariety.Controller0 ? neo2L : neo2R, transform, false);
-        var neo2Comp = neo2Go.AddComponent<Pvr_ControllerVisual>();
-        neo2Comp.currentDevice = ControllerDevice.Neo2;
-        LoadTexture(neo2Comp, neo2TexbasePath, true);
+        neo2.SetActive(true);
 #endif
     }
     void OnDestroy()
@@ -84,7 +72,7 @@ public class Pvr_ControllerInit : MonoBehaviour
 #if ANDROID_DEVICE
         if (pause)
         {
-            DestroyLocalController();
+            HideController();
         }
 #endif
     }
@@ -109,7 +97,7 @@ public class Pvr_ControllerInit : MonoBehaviour
                 }
                 else
                 {
-                    DestroyLocalController();
+                    HideController();
                 }
             }
             if (Variety == ControllerVariety.Controller1)
@@ -120,7 +108,7 @@ public class Pvr_ControllerInit : MonoBehaviour
                 }
                 else
                 {
-                    DestroyLocalController();
+                    HideController();
                 }
             }
         }
@@ -134,7 +122,7 @@ public class Pvr_ControllerInit : MonoBehaviour
                 }
                 else
                 {
-                    DestroyLocalController();
+                    HideController();
                 }
             }
         }
@@ -149,12 +137,9 @@ public class Pvr_ControllerInit : MonoBehaviour
             JsonData jdata = JsonMapper.ToObject(json);
             if (controllerType >= 0)
             {
-                if (jdata.Count >= controllerType )
-                {
-                    curControllerData = jdata[controllerType - 1];
-                    modelFilePath = (string)curControllerData["base_path"];
-                    modelName = (string)curControllerData["model_name"] + "_sys";
-                }
+                curControllerData = jdata[controllerType - 1];
+                modelFilePath = (string)curControllerData["base_path"];
+                modelName = (string)curControllerData["model_name"] + "_sys";
             }
         }
         else
@@ -173,14 +158,14 @@ public class Pvr_ControllerInit : MonoBehaviour
             {
                 if (controllerType != type)
                 {
-                    DestroySysController();
+                    DestroyController();
                     controllerType = type;
                 }
                 StartCoroutine(RefreshController(0));
             }
             else
             {
-                DestroyLocalController();
+                HideController();
             }
         }
     }
@@ -216,29 +201,32 @@ public class Pvr_ControllerInit : MonoBehaviour
                 case 0:
                     if (Variety == ControllerVariety.Controller0)
                     {
-                        DestroyLocalController();
+                        HideController();
                     }
                     break;
                 case 1:
                     if (Variety == ControllerVariety.Controller1)
                     {
-                        DestroyLocalController();
+                        HideController();
                     }
                     break;
             }
         }
     }
 
-    private void DestroyLocalController()
+    private void HideController()
     {
         foreach (Transform t in transform)
         {
-            Destroy(t.gameObject);
-            loadModelSuccess = false;
+            if (t.gameObject.activeSelf)
+            {
+                t.gameObject.SetActive(false);
+                loadModelSuccess = false;
+            }
         }
     }
 
-    private void DestroySysController()
+    private void DestroyController()
     {
         foreach (Transform t in transform)
         {
@@ -299,34 +287,38 @@ public class Pvr_ControllerInit : MonoBehaviour
         switch (controllerType)
         {
             case 1:
-                var goblinGo = Instantiate(goblin, transform, false);
-                var goblinComp = goblinGo.AddComponent<Pvr_ControllerVisual>();
-                goblinComp.currentDevice = ControllerDevice.Goblin;
-                LoadTexture(goblinComp, goblinTexbasePath, true);
+                goblin.SetActive(true);
+                neo.SetActive(false);
+                g2.SetActive(false);
+                neo2.SetActive(false);
+                loadModelSuccess = true;
+                break;
+            case 2:
+                goblin.SetActive(false);
+                neo.SetActive(true);
+                g2.SetActive(false);
+                neo2.SetActive(false);
                 loadModelSuccess = true;
                 break;
             case 3:
-                var g2Go = Instantiate(g2, transform, false);
-                var g2Comp = g2Go.AddComponent<Pvr_ControllerVisual>();
-                g2Comp.currentDevice = ControllerDevice.G2;
-                LoadTexture(g2Comp, g2TexbasePath, true);
+                goblin.SetActive(false);
+                neo.SetActive(false);
+                g2.SetActive(true);
+                neo2.SetActive(false);
                 loadModelSuccess = true;
                 break;
             case 4:
-                var neo2Go = Instantiate(Variety == ControllerVariety.Controller0 ? neo2L : neo2R, transform, false);
-                var neo2Comp = neo2Go.AddComponent<Pvr_ControllerVisual>();
-                neo2Comp.currentDevice = ControllerDevice.Neo2;
-                LoadTexture(neo2Comp,neo2TexbasePath,true);
-                loadModelSuccess = true;
-                break;
-            case 5:
-                var neo3Go = Instantiate(Variety == ControllerVariety.Controller0 ? neo3L : neo3R, transform, false);
-                var neo3Comp = neo3Go.AddComponent<Pvr_ControllerVisual>();
-                neo3Comp.currentDevice = ControllerDevice.Neo3;
-                LoadTexture(neo3Comp, neo3TexbasePath, true);
+                goblin.SetActive(false);
+                neo.SetActive(false);
+                g2.SetActive(false);
+                neo2.SetActive(true);
                 loadModelSuccess = true;
                 break;
             default:
+                goblin.SetActive(false);
+                neo.SetActive(false);
+                g2.SetActive(false);
+                neo2.SetActive(false);
                 loadModelSuccess = false;
                 break;
         }
@@ -339,7 +331,7 @@ public class Pvr_ControllerInit : MonoBehaviour
 
         if (!File.Exists(fullFilePath))
         {
-            PLOG.I("PvrLog Obj File does not exist==" + fullFilePath);
+            PLOG.E("PvrLog Obj File does not exist==" + fullFilePath);
         }
         else
         {
@@ -363,6 +355,11 @@ public class Pvr_ControllerInit : MonoBehaviour
                         controllerVisual.currentDevice = ControllerDevice.Goblin;
                     }
                     break;
+                case 2:
+                    {
+                        controllerVisual.currentDevice = ControllerDevice.Neo;
+                    }
+                    break;
                 case 3:
                     {
                         controllerVisual.currentDevice = ControllerDevice.G2;
@@ -373,77 +370,56 @@ public class Pvr_ControllerInit : MonoBehaviour
                         controllerVisual.currentDevice = ControllerDevice.Neo2;
                     }
                     break;
-                case 5:
-                    {
-                        controllerVisual.currentDevice = ControllerDevice.Neo3;
-                    }
-                    break;
                 default:
                     controllerVisual.currentDevice = ControllerDevice.NewController;
                     break;
             }
 
             controllerVisual.variety = Variety;
-            LoadTexture(controllerVisual, controllerType.ToString() + id.ToString(),false);
+            LoadTextureFromSystem(controllerVisual, controllerType.ToString() + id.ToString());
             go.transform.localRotation = Quaternion.Euler(new Vector3(0, 180, 0));
             go.transform.localScale = new Vector3(-0.01f, 0.01f, 0.01f);
         }
     }
 
 
-    private void LoadTexture(Pvr_ControllerVisual visual, string controllerName,bool fromRes)
+    private void LoadTextureFromSystem(Pvr_ControllerVisual visual, string controllerName)
     {
-        if (fromRes)
-        {
-            texFormat = "";
-            prePath = controllerName;
-        }
-        else
-        {
-            texFormat = "." + (string)curControllerData["tex_format"];
-            prePath = modelFilePath + controllerName;
-        }
-            
-        var texturepath = prePath + "_idle" + texFormat;
-        visual.m_idle = LoadOneTexture(texturepath, fromRes);
-        texturepath = prePath + "_app" + texFormat;
-        visual.m_app = LoadOneTexture(texturepath, fromRes);
-        texturepath = prePath + "_home" + texFormat;
-        visual.m_home = LoadOneTexture(texturepath, fromRes);
-        texturepath = prePath + "_touch" + texFormat;
-        visual.m_touchpad = LoadOneTexture(texturepath, fromRes);
-        texturepath = prePath + "_volume_down" + texFormat;
-        visual.m_volDn = LoadOneTexture(texturepath, fromRes);
-        texturepath = prePath + "_volume_up" + texFormat;
-        visual.m_volUp = LoadOneTexture(texturepath, fromRes);
-        texturepath = prePath + "_trigger" + texFormat;
-        visual.m_trigger = LoadOneTexture(texturepath, fromRes);
-        texturepath = prePath + "_a" + texFormat;
-        visual.m_a = LoadOneTexture(texturepath, fromRes);
-        texturepath = prePath + "_b" + texFormat;
-        visual.m_b = LoadOneTexture(texturepath, fromRes);
-        texturepath = prePath + "_x" + texFormat;
-        visual.m_x = LoadOneTexture(texturepath, fromRes);
-        texturepath = prePath + "_y" + texFormat;
-        visual.m_y = LoadOneTexture(texturepath, fromRes);
-        texturepath = prePath + "_grip" + texFormat;
-        visual.m_grip = LoadOneTexture(texturepath, fromRes);
+        string texFormat = (string)curControllerData["tex_format"];
+
+        var texturepath = modelFilePath + controllerName + "_idle." + texFormat;
+        visual.m_idle = LoadOneTexture(texturepath);
+        texturepath = modelFilePath + controllerName + "_app." + texFormat;
+        visual.m_app = LoadOneTexture(texturepath);
+        texturepath = modelFilePath + controllerName + "_home." + texFormat;
+        visual.m_home = LoadOneTexture(texturepath);
+        texturepath = modelFilePath + controllerName + "_touch." + texFormat;
+        visual.m_touchpad = LoadOneTexture(texturepath);
+        texturepath = modelFilePath + controllerName + "_volume_down." + texFormat;
+        visual.m_volDn = LoadOneTexture(texturepath);
+        texturepath = modelFilePath + controllerName + "_volume_up." + texFormat;
+        visual.m_volUp = LoadOneTexture(texturepath);
+        texturepath = modelFilePath + controllerName + "_trigger." + texFormat;
+        visual.m_trigger = LoadOneTexture(texturepath);
+        texturepath = modelFilePath + controllerName + "_a." + texFormat;
+        visual.m_a = LoadOneTexture(texturepath);
+        texturepath = modelFilePath + controllerName + "_b." + texFormat;
+        visual.m_b = LoadOneTexture(texturepath);
+        texturepath = modelFilePath + controllerName + "_x." + texFormat;
+        visual.m_x = LoadOneTexture(texturepath);
+        texturepath = modelFilePath + controllerName + "_y." + texFormat;
+        visual.m_y = LoadOneTexture(texturepath);
+        texturepath = modelFilePath + controllerName + "_grip." + texFormat;
+        visual.m_grip = LoadOneTexture(texturepath);
     }
 
-    private Texture2D LoadOneTexture(string filepath,bool fromRes)
+    private Texture2D LoadOneTexture(string filepath)
     {
-        if (fromRes)
-        {
-            return Resources.Load<Texture2D>(filepath);
-        }
-        else
-        {
-            int t_w = (int)curControllerData["tex_width"];
-            int t_h = (int)curControllerData["tex_height"];
-            var m_tex = new Texture2D(t_w, t_h);
-            m_tex.LoadImage(ReadPNG(filepath));
-            return m_tex;
-        }
+        int t_w = (int)curControllerData["tex_width"];
+        int t_h = (int)curControllerData["tex_height"];
+        var m_tex = new Texture2D(t_w, t_h);
+        m_tex.LoadImage(ReadPNG(filepath));
+        return m_tex;
     }
 
     private byte[] ReadPNG(string path)

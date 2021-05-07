@@ -9,36 +9,39 @@ public class Pvr_UnitySDKFPS : MonoBehaviour
 {
     public Text fpsText;
 
-    private float updateInterval = 0.5f;
-    private float accum = 0.0f;
-    private int frames = 0;
-    private float timeLeft = 0.0f;
-    private string strFps = null;
+    private float fps = 60;
+
+    void Start()
+    {
+        fps = 60;
+    }
 
     void Update()
     {
         if (fpsText != null)
         {
-            ShowFps();
+            fpsText.text = "FPS:" + ShowFps();
         }
     }
 
-    private void ShowFps()
+    public string ShowFps()
     {
-        timeLeft -= Time.unscaledDeltaTime;
-        accum += Time.unscaledDeltaTime;
-        ++frames;
-
-        if (timeLeft <= 0.0)
+        float interp = Time.deltaTime / (0.5f + Time.deltaTime);
+        if (float.IsNaN(interp) || float.IsInfinity(interp))
         {
-            float fps = frames / accum;
-
-            strFps = string.Format("FPS: {0:f0}", fps);
-            fpsText.text = strFps;
-
-            timeLeft += updateInterval;
-            accum = 0.0f;
-            frames = 0;
+            interp = 0;
         }
+        float currentFPS = 1.0f / Time.deltaTime;
+        if (float.IsNaN(currentFPS) || float.IsInfinity(currentFPS))
+        {
+            currentFPS = 0;
+        }
+        if (float.IsNaN(fps) || float.IsInfinity(fps))
+        {
+            fps = 0;
+        }
+        fps = Mathf.Lerp(fps, currentFPS, interp);
+
+        return (Mathf.RoundToInt(fps) + "fps");
     }
 }
