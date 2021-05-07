@@ -1,0 +1,1627 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{D2281B77-8308-3A6F-89D3-1DC5D364EB03}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>.</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_2019_4_24;UNITY_2019_4;UNITY_2019;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_4_OR_NEWER;UNITY_2018_1_OR_NEWER;UNITY_2018_2_OR_NEWER;UNITY_2018_3_OR_NEWER;UNITY_2018_4_OR_NEWER;UNITY_2019_1_OR_NEWER;UNITY_2019_2_OR_NEWER;UNITY_2019_3_OR_NEWER;UNITY_2019_4_OR_NEWER;UNITY_INCLUDE_TESTS;ENABLE_AR;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_EVENT_QUEUE;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_TEXTURE_STREAMING;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_UNITYWEBREQUEST;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_NATIVE_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_MANAGED_JOBS;ENABLE_MANAGED_TRANSFORM_JOBS;ENABLE_MANAGED_ANIMATION_JOBS;ENABLE_MANAGED_AUDIO_JOBS;ENABLE_RUNTIME_PERMISSIONS;ENABLE_ENGINE_CODE_STRIPPING;ENABLE_ONSCREEN_KEYBOARD;INCLUDE_DYNAMIC_GI;ENABLE_MONO_BDWGC;ENABLE_SCRIPTING_GC_WBARRIERS;PLATFORM_SUPPORTS_MONO;ENABLE_VIDEO;PLATFORM_ANDROID;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;PLATFORM_SUPPORTS_ADS_ID;UNITY_CAN_SHOW_SPLASH_SCREEN;UNITY_HAS_GOOGLEVR;UNITY_HAS_TANGO;ENABLE_SPATIALTRACKING;UNITY_ASTC_ONLY_DECOMPRESS;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;NET_STANDARD_2_0;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_UNITY_COLLECTIONS_CHECKS;ENABLE_BURST_AOT;UNITY_TEAM_LICENSE;ENABLE_VSTU;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_DIRECTOR;ENABLE_LOCALIZATION;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_TILEMAP;ENABLE_TIMELINE;ENABLE_LEGACY_INPUT_MANAGER;CSHARP_7_OR_LATER;CSHARP_7_3_OR_NEWER</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoConfig>true</NoConfig>
+    <NoStdLib>true</NoStdLib>
+    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+    <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
+    <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <UnityProjectGenerator>Unity/VSTU</UnityProjectGenerator>
+    <UnityProjectGeneratorVersion>4.9.1.0</UnityProjectGeneratorVersion>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>Android:13</UnityBuildTarget>
+    <UnityVersion>2019.4.24f1c1</UnityVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.24f1c1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:\Program Files\Unity\Hub\Editor\2019.4.24f1c1\Editor\Data\Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\PUITools\PicoUI\EventSystem\IPvrEventExecutor.cs" />
+    <Compile Include="Assets\PUITools\PicoUI\EventSystem\IPvrInputModuleController.cs" />
+    <Compile Include="Assets\PUITools\PicoUI\EventSystem\PUIEventListener.cs" />
+    <Compile Include="Assets\PUITools\PicoUI\EventSystem\PvrEventExecutor.cs" />
+    <Compile Include="Assets\PUITools\PicoUI\EventSystem\PvrGraphicRaycaster.cs" />
+    <Compile Include="Assets\PUITools\PicoUI\EventSystem\PvrInputMoudle.cs" />
+    <Compile Include="Assets\PUITools\PicoUI\EventSystem\PvrInputMoudleImpl.cs" />
+    <Compile Include="Assets\PUITools\PicoUI\UI\BetterList.cs" />
+    <Compile Include="Assets\PUITools\PicoUI\UI\ByteReader.cs" />
+    <Compile Include="Assets\PUITools\PicoUI\UI\DymicPixelManager.cs" />
+    <Compile Include="Assets\PUITools\PicoUI\UI\Localization.cs" />
+    <Compile Include="Assets\PUITools\PicoUI\UI\UILocalize.cs" />
+    <Compile Include="Assets\PUITools\PicoVRController\Scripts\CursorManager.cs" />
+    <Compile Include="Assets\PUITools\PicoVRController\Scripts\InputController.cs" />
+    <Compile Include="Assets\PUITools\PicoVRController\Scripts\PUI_UnityAPI.cs" />
+    <Compile Include="Assets\PUITools\PicoVRController\Scripts\RayController.cs" />
+    <Compile Include="Assets\PUITools\PicoVRController\Scripts\ToastController.cs" />
+    <Compile Include="Assets\PUITools\ToolTips\Interactive.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\API\Pvr_Achievement.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\API\Pvr_AchievementAPI.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Sample\AchievementSample.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Models\Pvr_AchievementDefinition.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Models\Pvr_AchievementProgress.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Models\Pvr_AchievementUpdate.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Models\Pvr_DeserializableList.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Pvr_Callback.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Pvr_CallbackRunner.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Pvr_Message.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Pvr_Request.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_BoundarySDK\API\Pvr_BoundaryAPI.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_BoundarySDK\API\Pvr_BoundarySystem.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\API\Pvr_ControllerAPI.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_Controller.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_ControllerDemo.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_ControllerEventsExamples.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_ControllerInit.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_ControllerLink.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_ControllerManager.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_ControllerModuleInit.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_ControllerPower.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_ControllerVisual.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_ToolTips.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_TouchPadScroll.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_TouchVisual.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Payment\Demo\Scripts\DemoController.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Payment\Demo\Scripts\LoadingRatation.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Payment\Demo\Utils\InputManager.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Payment\Scripts\Callback.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Payment\Scripts\CommonDic.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Payment\Scripts\LoginSDK.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Payment\Scripts\PicoPaymentSDK.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_ToBService\API\Pvr_ToBServiceAPI.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_ToBService\Scripts\Pvr_ToBService.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\API\Pvr_UnitySDKAPI.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\LogUtils.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\PicoSDKSetting\Scripts\CPicoSDKSettingAsset.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\PicoSDKSetting\Scripts\Pvr_UnitySDKProjectSetting.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Platform\Scripts\Pvr_UnitySDKPlatformSetting.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Pvr_UnitySDKManager.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\QuitGame.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Render\Pvr_UnityEyeMask.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Render\Pvr_UnitySDKEye.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Render\Pvr_UnitySDKEyeManager.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Render\Pvr_UnitySDKEyeOverlay.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Render\Pvr_UnitySDKRender.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Render\Pvr_UnitySDKSinglePass.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\EyeTracking\Scripts\HighlightAtGaze.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\EyeTracking\Scripts\RayVisualizer.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\GetSeeThroughImage\Scripts\GetSeeThroughImage.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\OverlayExternalSurface\OverlayExternalSurfaceDemo.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\Sphere\Scripts\MoveCylinder.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\Sphere\Scripts\MoveSphere.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\Sphere\Scripts\Resetbutton.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\UserEntitlementCheck\UserEntitlementCheck.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Sensor\Pvr_UnitySDKHeadTrack.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Sensor\Pvr_UnitySDKPose.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Sensor\Pvr_UnitySDKSensor.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\SplashScreen\Scripts\CLoadingAsset.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\Config\Pvr_UnitySDKConfigProfile.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\Config\Pvr_UnitySDKFPS.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\Event\Pvr_GazeFuse.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\Event\Pvr_GazeInputModule.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\Event\Pvr_GazeInputModuleCrosshair.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\Event\Pvr_UnitySDKPluginEvent.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\Event\Pvr_UnitySDKSightInputModule.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\OBJLoader\Pvr_ObjImporter.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\UIEvent\Pvr_EnumFlags.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\UIEvent\Pvr_EnumFlagsAttributeDrawer.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\UIEvent\Pvr_InputModule.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\UIEvent\Pvr_UICanvas.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\UIEvent\Pvr_UIDraggableItem.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\UIEvent\Pvr_UIDropZone.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\UIEvent\Pvr_UIGraphicRaycaster.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\System\UIEvent\Pvr_UIPointer.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\UnityEditor\Pvr_UnitySDKEditor.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_VolumePowerBrightness\API\Pvr_VolumePowerBrightnessAPI.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_VolumePowerBrightness\Scripts\Pvr_VolumePowerBrightness.cs" />
+    <Compile Include="Assets\Project\Scripts\Android\AndroidCallback.cs" />
+    <Compile Include="Assets\Project\Scripts\Android\Test.cs" />
+    <Compile Include="Assets\Project\Scripts\Home\HomeItem.cs" />
+    <Compile Include="Assets\Project\Scripts\Main.cs" />
+    <Compile Include="Assets\Project\Scripts\Model\BaseModel.cs" />
+    <Compile Include="Assets\Project\Scripts\Model\Constant.cs" />
+    <Compile Include="Assets\Project\Scripts\StatusBar\Battery.cs" />
+    <Compile Include="Assets\Project\Scripts\StatusBar\Bluetooth.cs" />
+    <Compile Include="Assets\Project\Scripts\StatusBar\StatusManager.cs" />
+    <Compile Include="Assets\Project\Scripts\StatusBar\SystemTime.cs" />
+    <Compile Include="Assets\Project\Scripts\StatusBar\Volume.cs" />
+    <Compile Include="Assets\Project\Scripts\StatusBar\Wifi.cs" />
+    <Compile Include="Assets\Project\Scripts\Utils\AppUtils.cs" />
+    <Compile Include="Assets\Project\Scripts\Utils\ImageUtils\ImageLoadManager.cs" />
+    <Compile Include="Assets\Project\Scripts\Utils\ImageUtils\ImageLoaderUpdateDelegator.cs" />
+    <Compile Include="Assets\Project\Scripts\Utils\ImageUtils\ImageUtils.cs" />
+    <Compile Include="Assets\Project\Scripts\Utils\ImageUtils\LocalImageLoader.cs" />
+    <Compile Include="Assets\Project\Scripts\Utils\ImageUtils\LocalImageLoaderResponse.cs" />
+    <Compile Include="Assets\Project\Scripts\Utils\JsonUtils.cs" />
+    <Compile Include="Assets\Project\Scripts\Utils\LauncherUtils.cs" />
+    <Compile Include="Assets\Project\Scripts\Utils\LogUtils.cs" />
+    <Compile Include="Assets\Project\Scripts\Utils\OtherUtils.cs" />
+    <Compile Include="Assets\Project\Scripts\Utils\PicoUnityActivity.cs" />
+    <Compile Include="Assets\Project\Scripts\Voice\SpeakAnimation.cs" />
+    <Compile Include="Assets\Project\Scripts\Voice\VoiceManager.cs" />
+    <Compile Include="Assets\Project\Scripts\Widget\BaseDialog.cs" />
+    <Compile Include="Assets\Project\Scripts\Widget\Dialog.cs" />
+    <Compile Include="Assets\Project\Scripts\Widget\DialogManager.cs" />
+    <Compile Include="Assets\Project\Scripts\Widget\HomeAnimation.cs" />
+    <Compile Include="Assets\Project\Scripts\Widget\OnHoverPosterEffect.cs" />
+    <Compile Include="Assets\Project\Scripts\Widget\PositionAnimation.cs" />
+    <Compile Include="Assets\Project\Scripts\Widget\TipDialog.cs" />
+    <Compile Include="Assets\Project\Scripts\Widget\Toast.cs" />
+    <Compile Include="Assets\Project\Scripts\Widget\UpdateDialog.cs" />
+    <Compile Include="Assets\Project\Scripts\Widget\VoiceDialog.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Authentication\Credentials.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Authentication\Digest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Authentication\DigestStore.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Caching\HTTPCacheFileInfo.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Caching\HTTPCacheFileLock.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Caching\HTTPCacheMaintananceParams.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Caching\HTTPCacheService.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Connections\ConnectionBase.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Connections\FileConnection.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Connections\WebGLConnection.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Cookies\Cookie.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Cookies\CookieJar.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Decompression\CRC32.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Decompression\Deflate.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Decompression\DeflateStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Decompression\GZipStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Decompression\InfTree.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Decompression\Inflate.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Decompression\ZTree.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Decompression\Zlib.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Decompression\ZlibBaseStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Decompression\ZlibCodec.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Decompression\ZlibConstants.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Extensions\Extensions.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Extensions\HeaderParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Extensions\HeaderValue.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Extensions\HeartbeatManager.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Extensions\KeyValuePairList.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Extensions\WWWAuthenticateHeaderParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Forms\HTTPFieldData.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Forms\HTTPFormBase.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Forms\HTTPFormUsage.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Forms\Implementations\HTTPMultiPartForm.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Forms\Implementations\HTTPUrlEncodedForm.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Forms\Implementations\UnityForm.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\HTTPConnection.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\HTTPConnectionStates.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\HTTPManager.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\HTTPMethods.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\HTTPProtocolFactory.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\HTTPProxy.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\HTTPRange.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\HTTPRequest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\HTTPResponse.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\HTTPUpdateDelegator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\JSON\JSON.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Logger\DefaultLogger.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Logger\ILogger.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\PlatformSupport\Collections\ObjectModel\ObservableDictionary.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\PlatformSupport\Collections\Specialized\NotifyCollectionChangedEventArgs.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\PlatformSupport\Cryptography\MD5CryptoServiceProvider.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\PlatformSupport\IO\Directory.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\PlatformSupport\IO\File.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\PlatformSupport\IO\FileEnums.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\PlatformSupport\IO\FileHelper.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\PlatformSupport\IO\FileStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\PlatformSupport\IO\Infos.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\PlatformSupport\TcpClient\TcpClient.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\PlatformSupport\TcpClient\WinRT\DataReaderWriterStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\PlatformSupport\TcpClient\WinRT\TcpClient.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\ReflectionHelpers.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\ASN1Generator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\ASN1OctetStringParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\ASN1SequenceParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\ASN1SetParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\ASN1StreamParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\ASN1TaggedObjectParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\Asn1Encodable.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\Asn1EncodableVector.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\Asn1Exception.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\Asn1InputStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\Asn1Null.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\Asn1Object.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\Asn1OctetString.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\Asn1OutputStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\Asn1ParsingException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\Asn1Sequence.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\Asn1Set.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\Asn1TaggedObject.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\Asn1Tags.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\BERGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\BEROctetStringParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\BERSequenceGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\BERSequenceParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\BERSetGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\BERSetParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\BERTaggedObjectParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\BerApplicationSpecific.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\BerApplicationSpecificParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\BerOctetString.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\BerOutputStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\BerSequence.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\BerSet.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\BerTaggedObject.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\ConstructedOctetStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DERExternal.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DERExternalParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DERGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DEROctetStringParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DERSequenceParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DERSetGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DERSetParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DefiniteLengthInputStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerApplicationSpecific.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerBMPString.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerBitString.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerBoolean.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerEnumerated.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerGeneralString.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerGeneralizedTime.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerIA5String.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerInteger.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerNull.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerNumericString.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerObjectIdentifier.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerOctetString.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerOutputStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerPrintableString.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerSequence.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerSet.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerStringBase.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerT61String.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerTaggedObject.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerUTCTime.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerUTF8String.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerUniversalString.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\DerVisibleString.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\IAsn1ApplicationSpecificParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\IAsn1Choice.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\IAsn1Convertible.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\IAsn1String.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\IndefiniteLengthInputStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\LazyASN1InputStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\LazyDERSequence.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\LazyDERSet.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\LimitedInputStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\OidTokenizer.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\anssi\ANSSINamedCurves.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\anssi\ANSSIObjectIdentifiers.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\cryptopro\CryptoProObjectIdentifiers.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\cryptopro\ECGOST3410NamedCurves.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\cryptopro\GOST3410NamedParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\cryptopro\GOST3410ParamSetParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\cryptopro\GOST3410PublicKeyAlgParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\iana\IANAObjectIdentifiers.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\misc\MiscObjectIdentifiers.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\misc\NetscapeCertType.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\misc\NetscapeRevocationURL.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\misc\VerisignCzagExtension.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\nist\NISTNamedCurves.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\nist\NISTObjectIdentifiers.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\ocsp\OCSPResponse.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\ocsp\OCSPResponseStatus.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\ocsp\ResponderID.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\ocsp\ResponseBytes.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\oiw\ElGamalParameter.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\oiw\OIWObjectIdentifiers.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\pkcs\ContentInfo.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\pkcs\DHParameter.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\pkcs\PKCSObjectIdentifiers.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\pkcs\RSASSAPSSparams.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\pkcs\SignedData.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\sec\SECNamedCurves.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\sec\SECObjectIdentifiers.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\teletrust\TeleTrusTNamedCurves.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\teletrust\TeleTrusTObjectIdentifiers.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\util\Asn1Dump.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\util\FilterStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\AlgorithmIdentifier.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\BasicConstraints.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\CRLDistPoint.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\CRLNumber.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\CRLReason.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\CertificateList.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\DSAParameter.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\DigestInfo.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\DistributionPoint.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\DistributionPointName.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\GeneralName.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\GeneralNames.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\IssuingDistributionPoint.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\KeyUsage.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\RSAPublicKeyStructure.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\ReasonFlags.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\SubjectPublicKeyInfo.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\TBSCertList.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\TBSCertificateStructure.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\Time.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\X509CertificateStructure.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\X509DefaultEntryConverter.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\X509Extension.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\X509Extensions.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\X509Name.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\X509NameEntryConverter.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\X509NameTokenizer.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x509\X509ObjectIdentifiers.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x9\DHDomainParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x9\DHPublicKey.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x9\DHValidationParms.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x9\ECNamedCurveTable.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x9\X962NamedCurves.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x9\X962Parameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x9\X9Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x9\X9ECParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x9\X9ECParametersHolder.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x9\X9ECPoint.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x9\X9FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x9\X9FieldID.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x9\X9IntegerConverter.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\asn1\x9\X9ObjectIdentifiers.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\AsymmetricCipherKeyPair.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\AsymmetricKeyParameter.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\BufferedAeadBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\BufferedAsymmetricBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\BufferedBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\BufferedCipherBase.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\BufferedIesCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\BufferedStreamCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\Check.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\CipherKeyGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\CryptoException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\DataLengthException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\IAsymmetricBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\IAsymmetricCipherKeyPairGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\IBasicAgreement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\IBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\IBufferedCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\ICipherParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\IDSA.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\IDerivationFunction.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\IDerivationParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\IDigest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\IMac.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\ISigner.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\ISignerWithRecovery.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\IStreamCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\IWrapper.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\InvalidCipherTextException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\KeyGenerationParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\MaxBytesExceededException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\OutputLengthException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\PbeParametersGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\agreement\DHBasicAgreement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\agreement\ECDHBasicAgreement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\GOST3411Digest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\GeneralDigest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\LongDigest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\MD2Digest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\MD4Digest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\MD5Digest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\NullDigest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\RipeMD128Digest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\RipeMD160Digest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\RipeMD256Digest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\RipeMD320Digest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\SHA3Digest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\Sha1Digest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\Sha224Digest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\Sha256Digest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\Sha384Digest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\Sha512Digest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\Sha512tDigest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\TigerDigest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\digests\WhirlpoolDigest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\ec\CustomNamedCurves.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\encodings\ISO9796d1Encoding.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\encodings\OaepEncoding.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\encodings\Pkcs1Encoding.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\AesEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\AesFastEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\AesWrapEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\BlowfishEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\CamelliaEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\CamelliaWrapEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\Cast5Engine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\Cast6Engine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\ChaChaEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\DesEdeEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\DesEdeWrapEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\DesEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\ElGamalEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\GOST28147Engine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\HC128Engine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\HC256Engine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\IdeaEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\IesEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\NoekeonEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\RC2Engine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\RC2WrapEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\RC4Engine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\RC532Engine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\RC564Engine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\RC6Engine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\RFC3211WrapEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\RFC3394WrapEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\RSABlindedEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\RSACoreEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\RijndaelEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\SEEDEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\SEEDWrapEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\Salsa20Engine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\SerpentEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\SkipjackEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\TEAEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\TwofishEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\VMPCEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\VMPCKSA3Engine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\engines\XTEAEngine.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\generators\DHBasicKeyPairGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\generators\DHKeyGeneratorHelper.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\generators\DHKeyPairGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\generators\DHParametersHelper.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\generators\DsaKeyPairGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\generators\ECKeyPairGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\generators\ElGamalKeyPairGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\generators\Poly1305KeyGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\generators\RsaKeyPairGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\macs\CMac.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\macs\CbcBlockCipherMac.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\macs\CfbBlockCipherMac.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\macs\GOST28147Mac.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\macs\HMac.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\macs\ISO9797Alg3Mac.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\macs\Poly1305.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\macs\SipHash.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\macs\VMPCMac.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\CbcBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\CcmBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\CfbBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\CtsBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\EAXBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\GCMBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\GOFBBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\IAeadBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\OCBBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\OfbBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\OpenPgpCfbBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\SicBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\gcm\GcmUtilities.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\gcm\IGcmExponentiator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\gcm\IGcmMultiplier.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\gcm\Tables1kGcmExponentiator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\modes\gcm\Tables8kGcmMultiplier.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\paddings\BlockCipherPadding.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\paddings\ISO10126d2Padding.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\paddings\ISO7816d4Padding.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\paddings\PaddedBufferedBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\paddings\Pkcs7Padding.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\paddings\TbcPadding.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\paddings\X923Padding.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\paddings\ZeroBytePadding.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\AEADParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\DHKeyGenerationParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\DHKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\DHParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\DHPrivateKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\DHPublicKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\DHValidationParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\DesEdeParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\DesParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\DsaKeyGenerationParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\DsaKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\DsaParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\DsaPrivateKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\DsaPublicKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\DsaValidationParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\ECDomainParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\ECKeyGenerationParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\ECKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\ECPrivateKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\ECPublicKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\ElGamalKeyGenerationParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\ElGamalKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\ElGamalParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\ElGamalPrivateKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\ElGamalPublicKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\GOST3410KeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\GOST3410Parameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\GOST3410PrivateKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\GOST3410PublicKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\GOST3410ValidationParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\ISO18033KDFParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\IesParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\IesWithCipherParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\KdfParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\KeyParameter.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\MqvPrivateParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\MqvPublicParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\ParametersWithIV.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\ParametersWithRandom.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\ParametersWithSBox.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\ParametersWithSalt.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\RC2Parameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\RC5Parameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\RSABlindingParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\RsaKeyGenerationParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\RsaKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\parameters\RsaPrivateCrtKeyParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\prng\CryptoApiRandomGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\prng\DigestRandomGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\prng\IRandomGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\signers\DsaDigestSigner.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\signers\DsaSigner.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\signers\ECDsaSigner.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\signers\ECGOST3410Signer.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\signers\ECNRSigner.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\signers\GOST3410DigestSigner.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\signers\GOST3410Signer.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\signers\GenericSigner.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\signers\HMacDsaKCalculator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\signers\IDsaKCalculator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\signers\Iso9796d2Signer.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\signers\PssSigner.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\signers\RandomDsaKCalculator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\signers\RsaDigestSigner.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\signers\X931Signer.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\AbstractTlsAgreementCredentials.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\AbstractTlsCipherFactory.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\AbstractTlsClient.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\AbstractTlsContext.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\AbstractTlsCredentials.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\AbstractTlsEncryptionCredentials.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\AbstractTlsKeyExchange.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\AbstractTlsPeer.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\AbstractTlsServer.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\AbstractTlsSigner.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\AbstractTlsSignerCredentials.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\AlertDescription.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\AlertLevel.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\AlwaysValidVerifyer.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\ByteQueue.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\CertChainType.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\Certificate.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\CertificateRequest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\CertificateStatus.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\CertificateStatusRequest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\CertificateStatusType.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\Chacha20Poly1305.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\ChangeCipherSpec.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\CipherSuite.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\CipherType.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\ClientCertificateType.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\CombinedHash.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\CompressionMethod.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\ConnectionEnd.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\ContentType.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\DatagramTransport.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\DefaultTlsCipherFactory.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\DefaultTlsClient.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\DeferredHash.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\DigestInputBuffer.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\DigitallySigned.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\ECBasisType.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\ECCurveType.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\ECPointFormat.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\EncryptionAlgorithm.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\ExporterLabel.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\ExtensionType.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\FiniteFieldDheGroup.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\HandshakeType.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\HashAlgorithm.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\HeartbeatExtension.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\HeartbeatMessageType.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\HeartbeatMode.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\ICertificateVerifyer.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\KeyExchangeAlgorithm.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\LegacyTlsAuthentication.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\LegacyTlsClient.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\MacAlgorithm.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\MaxFragmentLength.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\NameType.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\NamedCurve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\NewSessionTicket.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\OcspStatusRequest.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\PrfAlgorithm.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\ProtocolVersion.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\RecordStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\SecurityParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\ServerDHParams.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\ServerName.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\ServerNameList.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\SessionParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\SignatureAlgorithm.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\SignatureAndHashAlgorithm.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\SignerInputBuffer.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\Ssl3Mac.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\SupplementalDataEntry.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsAeadCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsAgreementCredentials.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsAuthentication.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsBlockCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsCipherFactory.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsClient.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsClientContext.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsClientContextImpl.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsClientProtocol.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsCompression.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsContext.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsCredentials.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsDHKeyExchange.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsDHUtilities.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsDeflateCompression.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsDheKeyExchange.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsDsaSigner.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsDssSigner.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsECDHKeyExchange.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsECDheKeyExchange.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsECDsaSigner.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsEccUtilities.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsEncryptionCredentials.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsExtensionsUtilities.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsFatalAlert.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsHandshakeHash.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsKeyExchange.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsMac.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsNullCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsNullCompression.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsPeer.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsProtocol.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsRsaKeyExchange.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsRsaSigner.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsRsaUtilities.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsServer.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsServerContext.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsServerContextImpl.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsSession.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsSessionImpl.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsSigner.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsSignerCredentials.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsStreamCipher.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\tls\TlsUtilities.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\crypto\util\Pack.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\BigInteger.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\ECAlgorithms.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\ECCurve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\ECFieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\ECPoint.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\ECPointMap.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\LongArray.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\ScaleXPointMap.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\abc\SimpleBigDecimal.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\abc\Tnaf.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\abc\ZTauElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\djb\Curve25519.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\djb\Curve25519Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\djb\Curve25519FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\djb\Curve25519Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP128R1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP128R1Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP128R1FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP128R1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP160K1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP160K1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP160R1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP160R1Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP160R1FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP160R1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP160R2Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP160R2Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP160R2FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP160R2Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP192K1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP192K1Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP192K1FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP192K1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP192R1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP192R1Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP192R1FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP192R1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP224K1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP224K1Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP224K1FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP224K1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP224R1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP224R1Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP224R1FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP224R1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP256K1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP256K1Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP256K1FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP256K1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP256R1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP256R1Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP256R1FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP256R1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP384R1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP384R1Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP384R1FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP384R1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP521R1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP521R1Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP521R1FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecP521R1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT113Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT113FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT113R1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT113R1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT113R2Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT113R2Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT131Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT131FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT131R1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT131R1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT131R2Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT131R2Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT163Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT163FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT163K1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT163K1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT163R1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT163R1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT163R2Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT163R2Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT233Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT233FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT233K1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT233K1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT233R1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT233R1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT239Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT239FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT239K1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT239K1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT283Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT283FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT283K1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT283K1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT283R1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT283R1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT409Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT409FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT409K1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT409K1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT409R1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT409R1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT571Field.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT571FieldElement.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT571K1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT571K1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT571R1Curve.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\custom\sec\SecT571R1Point.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\endo\ECEndomorphism.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\endo\GlvEndomorphism.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\endo\GlvTypeBEndomorphism.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\endo\GlvTypeBParameters.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\multiplier\AbstractECMultiplier.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\multiplier\ECMultiplier.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\multiplier\FixedPointCombMultiplier.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\multiplier\FixedPointPreCompInfo.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\multiplier\FixedPointUtilities.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\multiplier\GlvMultiplier.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\multiplier\PreCompInfo.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\multiplier\WNafL2RMultiplier.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\multiplier\WNafPreCompInfo.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\multiplier\WNafUtilities.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\multiplier\WTauNafMultiplier.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\ec\multiplier\WTauNafPreCompInfo.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\field\FiniteFields.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\field\GF2Polynomial.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\field\GenericPolynomialExtensionField.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\field\IExtensionField.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\field\IFiniteField.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\field\IPolynomial.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\field\IPolynomialExtensionField.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\field\PrimeField.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\raw\Interleave.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\raw\Mod.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\raw\Nat.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\raw\Nat128.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\raw\Nat160.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\raw\Nat192.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\raw\Nat224.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\raw\Nat256.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\raw\Nat320.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\raw\Nat384.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\raw\Nat448.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\raw\Nat512.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\math\raw\Nat576.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\DigestUtilities.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\GeneralSecurityException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\InvalidKeyException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\InvalidParameterException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\KeyException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\MacUtilities.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\PublicKeyFactory.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\SecureRandom.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\SecurityUtilityException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\SignatureException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\SignerUtilities.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\cert\CertificateEncodingException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\cert\CertificateException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\cert\CertificateExpiredException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\cert\CertificateNotYetValidException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\cert\CertificateParsingException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\security\cert\CrlException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\Arrays.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\BigIntegers.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\Enums.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\IMemoable.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\Integers.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\MemoableResetException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\Platform.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\Strings.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\Times.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\collections\CollectionUtilities.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\collections\EmptyEnumerable.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\collections\EnumerableProxy.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\collections\HashSet.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\collections\ISet.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\date\DateTimeObject.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\date\DateTimeUtilities.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\encoders\Base64.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\encoders\Base64Encoder.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\encoders\Hex.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\encoders\HexEncoder.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\encoders\IEncoder.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\io\BaseInputStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\io\BaseOutputStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\io\PushbackStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\io\StreamOverflowException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\io\Streams.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\io\TeeInputStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\io\TeeOutputStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\io\pem\PemGenerationException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\io\pem\PemHeader.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\io\pem\PemObject.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\io\pem\PemObjectGenerator.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\io\pem\PemReader.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\io\pem\PemWriter.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\net\IPAddress.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\zlib\Adler32.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\zlib\Deflate.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\zlib\InfBlocks.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\zlib\InfCodes.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\zlib\InfTree.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\zlib\Inflate.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\zlib\JZlib.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\zlib\StaticTree.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\zlib\ZOutputStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\zlib\ZStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\util\zlib\ZTree.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\x509\IX509Extension.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\x509\PEMParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\x509\X509Certificate.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\x509\X509CertificateParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\x509\X509Crl.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\x509\X509CrlEntry.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\x509\X509CrlParser.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\x509\X509ExtensionBase.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\x509\X509SignatureUtil.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SecureProtocol\x509\extension\X509ExtensionUtil.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\ServerSentEvents\EventSource.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\ServerSentEvents\EventSourceResponse.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\ServerSentEvents\Message.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\Authentication\IAuthenticationProvider.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\Connection.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\Enums.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\Hubs\Hub.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\Hubs\IHub.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\JsonEncoders\DefaultJsonEncoder.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\JsonEncoders\IJsonEncoder.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\Messages\ClientMessage.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\Messages\IServerMessage.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\Messages\ServerMessages.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\NegotiationData.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\Transports\PollingTransport.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\Transports\PostSendTransportBase.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\Transports\ServerSentEventsTransport.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\Transports\TransportBase.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SignalR\Transports\WebSocketTransport.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\Enums.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\Error.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\Events\EventDescriptor.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\Events\EventNames.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\Events\EventTable.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\HandshakeData.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\Interfaces.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\JsonEncoders\DefaultJSonEncoder.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\JsonEncoders\IJSonEncoder.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\Packet.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\Socket.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\SocketManager.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\SocketOptions.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\Transports\ITransport.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\Transports\PollingTransport.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\SocketIO\Transports\WebSocketTransport.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\Statistics\Statistics.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\WebSocket\Extensions\IExtension.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\WebSocket\Extensions\PerMessageCompression.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\WebSocket\Frames\WebSocketFrame.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\WebSocket\Frames\WebSocketFrameReader.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\WebSocket\Frames\WebSocketFrameTypes.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\WebSocket\WebSocket.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\WebSocket\WebSocketResponse.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\BestHTTP\WebSocket\WebSocketStatusCodes.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\HTTP\AssetBundleSample.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\HTTP\LargeFileDownloadSample.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\HTTP\TextureDownloadSample.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\HTTP\UploadStream.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\Helpers\CodeBlocks.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\Helpers\GUIHelper.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\LitJson\IJsonWrapper.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\LitJson\JsonData.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\LitJson\JsonException.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\LitJson\JsonMapper.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\LitJson\JsonMockWrapper.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\LitJson\JsonReader.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\LitJson\JsonWriter.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\LitJson\Lexer.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\LitJson\ParserToken.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\Plugin\CacheMaintenanceSample.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\SampleSelector.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\SignalR\Authentication Providers\SampleCookieAuthentication.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\SignalR\Authentication Providers\SampleHeaderAuthentication.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\SignalR\AuthenticationSample.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\SignalR\ConnectionAPISample.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\SignalR\ConnectionStatusSample.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\SignalR\DemoHubSample.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\SignalR\Json Encoders\LitJsonEncoder.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\SignalR\SimpleStreamingSample.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\SocketIO\SocketIO Json Encoders\JsonDotNetEncoder.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\SocketIO\SocketIO Json Encoders\LitJsonEncoder.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\SocketIO\SocketIOChatSample.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\SocketIO\SocketIOWePlaySample.cs" />
+    <Compile Include="Assets\Third-Part\Best HTTP (Pro)\Examples\Websocket\WebSocketSample.cs" />
+    <Compile Include="Assets\Third-Part\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
+    <Compile Include="Assets\Third-Part\InfinityScrollView\Script\InfinityBaseItem.cs" />
+    <Compile Include="Assets\Third-Part\InfinityScrollView\Script\InfinityScrollView.cs" />
+    <Compile Include="Assets\Third-Part\InfinityScrollView\Script\RectTranformUtils.cs" />
+    <None Include="Assets\PUI2.0 Environment\FireBall\Effect\WarFX\Shaders\WFX_S Multiply Soft Scroll.shader" />
+    <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Resources\Pvr_EyeMask.shader" />
+    <None Include="Assets\PicoMobileSDK\Pvr_Controller\Shaders\UI_Overlay.shader" />
+    <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Resources\Fade.shader" />
+    <None Include="Assets\PicoMobileSDK\Pvr_Controller\Shaders\Pvr_UnitySDKLaser.shader" />
+    <None Include="Assets\PUI2.0 Environment\FireBall\Effect\WarFX\Shaders\WFX_S Particle Add A8.shader" />
+    <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\Sphere\Resources\Undistortion.shader" />
+    <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Resources\FillColor.shader" />
+    <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Resources\Materials\UnderlayHole.shader" />
+    <None Include="Assets\Project\Shader\UISplitAlpha.shader" />
+    <None Include="Assets\Project\Shader\MaskIcon.shader" />
+    <None Include="Assets\Project\Shader\FixedAlpha.shader" />
+    <None Include="Assets\Third-Part\Best HTTP (Pro)\link.xml" />
+    <None Include="Assets\Third-Part\Best HTTP (Pro)\ReleaseNotes.txt" />
+    <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Resources\Undistortion.shader" />
+    <None Include="Assets\Project\Resources\Localization.txt" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AndroidJNIModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.AndroidJNIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DSPGraphModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.DSPGraphModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HotReloadModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.HotReloadModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.InputLegacyModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.InputLegacyModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.LocalizationModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.LocalizationModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ProfilerModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.ProfilerModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SharedInternalsModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.SharedInternalsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpriteShapeModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.SpriteShapeModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.StreamingModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.StreamingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SubstanceModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.SubstanceModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SubsystemsModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.SubsystemsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TLSModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.TLSModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextCoreModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.TextCoreModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UNETModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UmbraModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.UmbraModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityConnectModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityTestProtocolModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityTestProtocolModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VFXModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.VFXModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.WindModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XRModule">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Assets/Plugins/LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Assets/Third-Part/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween43">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween43.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween46">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween46.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween50">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween50.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/Microsoft.Win32.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.AppContext">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.AppContext.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Concurrent">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Collections.Concurrent.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.NonGeneric">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Collections.NonGeneric.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Specialized">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Collections.Specialized.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.ComponentModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.EventBasedAsync">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.ComponentModel.EventBasedAsync.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Primitives">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.ComponentModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.TypeConverter">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.ComponentModel.TypeConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Console">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Console.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Common">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Data.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Contracts">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.Contracts.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Debug">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.FileVersionInfo">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.FileVersionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Process">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.Process.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.StackTrace">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.StackTrace.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.TextWriterTraceListener">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.TextWriterTraceListener.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tools">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.Tools.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.TraceSource">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.TraceSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tracing">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Diagnostics.Tracing.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Primitives">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Drawing.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Dynamic.Runtime">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Dynamic.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Globalization.Calendars.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Globalization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Globalization.Extensions">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Globalization.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.ZipFile">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.Compression.ZipFile.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.DriveInfo">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.FileSystem.DriveInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.FileSystem.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Watcher">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.FileSystem.Watcher.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.IsolatedStorage">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.IsolatedStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.MemoryMappedFiles">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.MemoryMappedFiles.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipes">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.Pipes.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.UnmanagedMemoryStream">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.IO.UnmanagedMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Expressions">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Linq.Expressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Parallel">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Linq.Parallel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Queryable">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Linq.Queryable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NameResolution">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.NameResolution.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.NetworkInformation">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.NetworkInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Ping">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.Ping.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Primitives">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Requests">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.Requests.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Security">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Sockets">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.Sockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebHeaderCollection">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.WebHeaderCollection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets.Client">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.WebSockets.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.WebSockets">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Net.WebSockets.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ObjectModel">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.ObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Reflection.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Extensions">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Reflection.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection.Primitives">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Reflection.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Reader">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Resources.Reader.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.ResourceManager">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Resources.ResourceManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Resources.Writer">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Resources.Writer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.VisualC">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.CompilerServices.VisualC.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Handles">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.Handles.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.InteropServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Numerics">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Formatters">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.Serialization.Formatters.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Json">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.Serialization.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Primitives">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.Serialization.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization.Xml">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Runtime.Serialization.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Claims">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.Claims.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.Cryptography.Algorithms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Csp">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.Cryptography.Csp.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.Cryptography.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.Cryptography.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.Principal.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.SecureString">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Security.SecureString.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Text.Encoding.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.Extensions">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Text.Encoding.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Text.RegularExpressions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Threading.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Overlapped">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Threading.Overlapped.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Parallel">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Threading.Tasks.Parallel.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Thread">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Threading.Thread.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.ThreadPool">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Threading.ThreadPool.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Timer">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Threading.Timer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.ReaderWriter">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Xml.ReaderWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XDocument">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Xml.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlDocument">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Xml.XmlDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlSerializer">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Xml.XmlSerializer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Xml.XPath.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath.XDocument">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.Xml.XPath.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics.Vectors">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/Extensions/2.0.0/System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.WindowsRuntime">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/Extensions/2.0.0/System.Runtime.InteropServices.WindowsRuntime.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/mscorlib.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.ComponentModel.Composition.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.IO.Compression.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Runtime.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceModel.Web">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.ServiceModel.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Transactions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Serialization">
+      <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline.Editor">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.VSCode.Editor">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro.Editor">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Timeline">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.CollabProxy.Editor">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Rider.Editor">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>D:/Unity/Launcher-Demo-master/Launcher-Demo-master/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup></ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
