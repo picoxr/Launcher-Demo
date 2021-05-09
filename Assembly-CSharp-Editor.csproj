@@ -67,9 +67,14 @@
     <Compile Include="Assets\PUITools\PicoUI\Editor\PGUIEditorTools.cs" />
     <Compile Include="Assets\PUITools\PicoUI\Editor\UILocalizeEditor.cs" />
     <Compile Include="Assets\PUITools\ToolTips\Editor\InteractiveEditor.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Editor\BuildTool\Pvr_ADBTool.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Editor\BuildTool\Pvr_BuildTools.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Editor\BuildTool\Pvr_DirectorySyncer.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Editor\BuildTool\Pvr_PathHelper.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Editor\Pvr_EyeTrackingEditor.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Editor\Pvr_LoadingEditor.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Editor\Pvr_SDKSetting.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Editor\Pvr_UnitySDKBuildCheck.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Editor\Pvr_UnitySDKEyeManagerEditor.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Editor\Pvr_UnitySDKEyeOverlayEditor.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Editor\Pvr_UnitySDKManagerEditor.cs" />
@@ -278,37 +283,37 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="LitJson">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Plugins/LitJson.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Plugins/LitJson.dll</HintPath>
     </Reference>
     <Reference Include="DemiLib">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Third-Part/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Third-Part/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
     </Reference>
     <Reference Include="DemiEditor">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Third-Part/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Third-Part/Demigiant/DemiLib/Core/Editor/DemiEditor.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DOTween43">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween43.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween43.dll</HintPath>
     </Reference>
     <Reference Include="DOTween46">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween46.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween46.dll</HintPath>
     </Reference>
     <Reference Include="DOTween50">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween50.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween50.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenEditor">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/Editor/DOTweenEditor.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenPro">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenProEditor">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -665,37 +670,37 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

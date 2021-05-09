@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Battery  {
 
 	private BatteryState batteryState = BatteryState.BATTERY_STATUS_UNKNOWN;
+
 	public BatteryState BatteryState {
 		get {
 			return batteryState;
@@ -23,7 +25,6 @@ public class Battery  {
 			level = value;
 		}
 	}
-
 }
 
 //电池状态

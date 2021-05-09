@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -46,7 +47,8 @@ public class OtherUtils : MonoBehaviour {
      */
 	public string GetCurrentTime() {
 		if (Application.platform == RuntimePlatform.Android) {
-			return GetJavaObject ().Call<string> ("getCurrentTime");
+			string time = GetJavaObject().Call<string>("getCurrentTime");
+			return time;
 		} else {
 			return "00:00";
 		}
@@ -266,7 +268,8 @@ public class OtherUtils : MonoBehaviour {
 	 * 获取设备电量 1-100
 	 */
 	public int GetBattery(){
-		return GetJavaObject ().Call<int> ("getBattery");
+		int battery = GetJavaObject().Call<int>("getBattery");
+		return battery;
 	}
 
 	/**

@@ -16,7 +16,6 @@ public class StatusManager : MonoBehaviour {
 			return instance;
 		}
 	}
-
 	//wifi
 	private Wifi wifi = new Wifi();
 	public Image wifiImage;
@@ -53,7 +52,7 @@ public class StatusManager : MonoBehaviour {
 		UpdateBluetoothUI ();
 		systemTime.Time = OtherUtils.Instance.GetCurrentTime ();
 		UpdateTimeUI ();
-    }
+	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -80,14 +79,14 @@ public class StatusManager : MonoBehaviour {
 	*/
 	private void UpdateWifiUI()
 	{
-		if(wifi.WifiState == WifiState.WIFI_STATE_ENABLED){
+		if (wifi.WifiState == WifiState.WIFI_STATE_ENABLED){
 			//打开
 			if(wifi.NetworkState == NetworkState.STATE_DISCONNECTED){
 				//未连接
 				wifiImage.sprite = Resources.Load("Image/wifi_disconnected", typeof(Sprite)) as Sprite;
 			}else{
 				//连接上热点
-				wifiImage.sprite = Resources.Load("Image/wifi_connected_"+wifi.Level, typeof(Sprite)) as Sprite;
+				wifiImage.sprite = Resources.Load("Image/wifi_connected_"+ wifi.Level, typeof(Sprite)) as Sprite;
 			}
 		}else{
 			//未打开
@@ -126,7 +125,7 @@ public class StatusManager : MonoBehaviour {
 		case BatteryState.BATTERY_STATUS_FULL:
 			float num = float.Parse (battery.Level) / 20;
 			int level = Mathf.CeilToInt (num);
-			batteryImage.sprite = Resources.Load ("Image/electric_" + level, typeof(Sprite)) as Sprite;
+				batteryImage.sprite = Resources.Load("Image/electric_" + level.ToString(), typeof(Sprite)) as Sprite;
             batteryText.text = battery.Level + "%";
                 break;
 		}
@@ -253,7 +252,7 @@ public class StatusManager : MonoBehaviour {
 	public void ClickSettings()
 	{
 		AppUtils.Instance.OpenAppByComponentName (Constant.SETTINGS_PACKAGE_NAME, Constant.SETTINGS_ACTIVITY_NAME);
-
+		
         mGrid.enabled = false;
         mGrid.enabled = true;
     }
@@ -265,5 +264,4 @@ public class StatusManager : MonoBehaviour {
 	{
 		AppUtils.Instance.OpenAppByComponentName (Constant.USERCENTER_PACKAGE_NAME, Constant.USERCENTER_ACTIVITY_NAME);
 	}
-
 }

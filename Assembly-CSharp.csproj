@@ -82,6 +82,19 @@
     <Compile Include="Assets\PUITools\PicoVRController\Scripts\RayController.cs" />
     <Compile Include="Assets\PUITools\PicoVRController\Scripts\ToastController.cs" />
     <Compile Include="Assets\PUITools\ToolTips\Interactive.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\API\Pvr_Achievement.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\API\Pvr_AchievementAPI.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Sample\AchievementSample.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Models\Pvr_AchievementDefinition.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Models\Pvr_AchievementProgress.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Models\Pvr_AchievementUpdate.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Models\Pvr_DeserializableList.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Pvr_Callback.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Pvr_CallbackRunner.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Pvr_Message.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Achievement\Scripts\Pvr_Request.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_BoundarySDK\API\Pvr_BoundaryAPI.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_BoundarySDK\API\Pvr_BoundarySystem.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\API\Pvr_ControllerAPI.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_Controller.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_ControllerDemo.cs" />
@@ -95,6 +108,15 @@
     <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_ToolTips.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_TouchPadScroll.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_Controller\Scripts\Pvr_TouchVisual.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Payment\Demo\Scripts\DemoController.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Payment\Demo\Scripts\LoadingRatation.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Payment\Demo\Utils\InputManager.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Payment\Scripts\Callback.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Payment\Scripts\CommonDic.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Payment\Scripts\LoginSDK.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_Payment\Scripts\PicoPaymentSDK.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_ToBService\API\Pvr_ToBServiceAPI.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_ToBService\Scripts\Pvr_ToBService.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\API\Pvr_UnitySDKAPI.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\LogUtils.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\PicoSDKSetting\Scripts\CPicoSDKSettingAsset.cs" />
@@ -102,6 +124,7 @@
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Platform\Scripts\Pvr_UnitySDKPlatformSetting.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Pvr_UnitySDKManager.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\QuitGame.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Render\Pvr_UnityEyeMask.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Render\Pvr_UnitySDKEye.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Render\Pvr_UnitySDKEyeManager.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Render\Pvr_UnitySDKEyeOverlay.cs" />
@@ -109,10 +132,12 @@
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Render\Pvr_UnitySDKSinglePass.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\EyeTracking\Scripts\HighlightAtGaze.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\EyeTracking\Scripts\RayVisualizer.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\GetSeeThroughImage\Scripts\GetSeeThroughImage.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\OverlayExternalSurface\OverlayExternalSurfaceDemo.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\Sphere\Scripts\MoveCylinder.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\Sphere\Scripts\MoveSphere.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\Sphere\Scripts\Resetbutton.cs" />
+    <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\UserEntitlementCheck\UserEntitlementCheck.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Sensor\Pvr_UnitySDKHeadTrack.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Sensor\Pvr_UnitySDKPose.cs" />
     <Compile Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Sensor\Pvr_UnitySDKSensor.cs" />
@@ -1002,21 +1027,22 @@
     <Compile Include="Assets\Third-Part\InfinityScrollView\Script\InfinityBaseItem.cs" />
     <Compile Include="Assets\Third-Part\InfinityScrollView\Script\InfinityScrollView.cs" />
     <Compile Include="Assets\Third-Part\InfinityScrollView\Script\RectTranformUtils.cs" />
+    <None Include="Assets\PUI2.0 Environment\FireBall\Effect\WarFX\Shaders\WFX_S Multiply Soft Scroll.shader" />
+    <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Resources\Pvr_EyeMask.shader" />
+    <None Include="Assets\PicoMobileSDK\Pvr_Controller\Shaders\UI_Overlay.shader" />
+    <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Resources\Fade.shader" />
+    <None Include="Assets\PicoMobileSDK\Pvr_Controller\Shaders\Pvr_UnitySDKLaser.shader" />
+    <None Include="Assets\PUI2.0 Environment\FireBall\Effect\WarFX\Shaders\WFX_S Particle Add A8.shader" />
+    <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\Sphere\Resources\Undistortion.shader" />
+    <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Resources\FillColor.shader" />
     <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Resources\Materials\UnderlayHole.shader" />
     <None Include="Assets\Project\Shader\UISplitAlpha.shader" />
-    <None Include="Assets\Project\Shader\FixedAlpha.shader" />
-    <None Include="Assets\Third-Part\Best HTTP (Pro)\ReleaseNotes.txt" />
-    <None Include="Assets\PicoMobileSDK\Pvr_Controller\Shaders\Pvr_UnitySDKLaser.shader" />
-    <None Include="Assets\Project\Resources\Localization.txt" />
-    <None Include="Assets\PUI2.0 Environment\FireBall\Effect\WarFX\Shaders\WFX_S Particle Add A8.shader" />
-    <None Include="Assets\PicoMobileSDK\Pvr_Controller\Shaders\UI_Overlay.shader" />
-    <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Scenes\Examples\Sphere\Resources\Undistortion.shader" />
-    <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Resources\Fade.shader" />
-    <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Resources\FillColor.shader" />
-    <None Include="Assets\PUI2.0 Environment\FireBall\Effect\WarFX\Shaders\WFX_S Multiply Soft Scroll.shader" />
-    <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Resources\Undistortion.shader" />
     <None Include="Assets\Project\Shader\MaskIcon.shader" />
+    <None Include="Assets\Project\Shader\FixedAlpha.shader" />
     <None Include="Assets\Third-Part\Best HTTP (Pro)\link.xml" />
+    <None Include="Assets\Third-Part\Best HTTP (Pro)\ReleaseNotes.txt" />
+    <None Include="Assets\PicoMobileSDK\Pvr_UnitySDK\Resources\Undistortion.shader" />
+    <None Include="Assets\Project\Resources\Localization.txt" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -1195,25 +1221,25 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/Managed/UnityEditor.dll</HintPath>
     </Reference>
     <Reference Include="LitJson">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Plugins/LitJson.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Plugins/LitJson.dll</HintPath>
     </Reference>
     <Reference Include="DemiLib">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Third-Part/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Third-Part/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DOTween43">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween43.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween43.dll</HintPath>
     </Reference>
     <Reference Include="DOTween46">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween46.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween46.dll</HintPath>
     </Reference>
     <Reference Include="DOTween50">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween50.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTween/DOTween50.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenPro">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Assets/Third-Part/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -1561,31 +1587,31 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.24f1c1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Unity/Launcher-Demo01/Launcher-Demo-master/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Unity/Launcher-Demo-master/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup></ItemGroup>
